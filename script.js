@@ -7,6 +7,9 @@
 			document.getElementById('bd').className = 'bd_plus';
 			document.getElementById('dt').className = 'dt_minus';
 			document.getElementById('dp').className = 'dt_minus';
+			$(this).attr("id", "vkl_bd_plus");
+			$("#vkl_dt_plus").attr("id", "#vkl_dt");
+			$("#vkl_dp_plus").attr("id", "#vkl_dp");
 		});
 
 
@@ -16,6 +19,9 @@
 			document.getElementById('bd').className = 'bd_minus';
 			document.getElementById('dt').className = 'dt_plus';
 			document.getElementById('dp').className = 'dt_minus';
+			$(this).attr("id", "vkl_dt_plus");
+			$("#vkl_bd_plus").attr("id", "#vkl_bd");
+			$("#vkl_dp_plus").attr("id", "#vkl_dp");
 		});
 
 
@@ -25,6 +31,9 @@
 			document.getElementById('bd').className = 'bd_minus';
 			document.getElementById('dt').className = 'dt_minus';
 			document.getElementById('dp').className = 'dt_plus';
+			$(this).attr("id", "vkl_dp_plus");
+			$("#vkl_bd_plus").attr("id", "#vkl_bd");
+			$("#vkl_dt_plus").attr("id", "#vkl_dt");
 		});
 	});
 

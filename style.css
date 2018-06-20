@@ -195,6 +195,25 @@ p, table{
 	color: #265CA6;
 }
 
+#vkl_bd_plus {
+	background-color: white;
+}
+#vkl_bd_plus a{
+	color: #265CA6;
+}
+#vkl_dt_plus {
+	background-color: white;
+}
+#vkl_dt_plus a{
+	color: #265CA6;
+}
+#vkl_dp_plus {
+	background-color: white;
+}
+#vkl_dp_plus a{
+	color: #265CA6;
+}
+
 .forma{
 	margin: auto;
 	padding-top: 1px;
@@ -203,7 +222,6 @@ p, table{
 	background-color: white;
 	margin-bottom: 15px;
 }
-
 /* ========== Позиционирование внутри вкладки ========== */
 .bd_minus{
 	position: absolute;
@@ -213,6 +231,7 @@ p, table{
 	position: absolute;
 	margin: auto;
 }
+
 .dp_minus{
 	position: absolute;
 	margin-left: -1000px;
