@@ -10,6 +10,10 @@
 			$(this).attr("id", "vkl_bd_plus");
 			$("#vkl_dt_plus").attr("id", "#vkl_dt");
 			$("#vkl_dp_plus").attr("id", "#vkl_dp");
+			
+			document.getElementById('pods').className = 'podskazki';
+			$("#podskazki_text").text("xxxxxxx");
+			
 		});
 
 

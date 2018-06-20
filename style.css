@@ -165,6 +165,43 @@ p, table{
 
 }
 
+/* ========== Стили подсказок ========== */
+.podskazki{
+	width: 250px;
+	position: fixed;
+	right: 10px;
+	top: 30%; 
+    padding: 5px;
+	background-color: #2B70CA;
+	color: white;
+}
+.podskazki_minus{
+	width: 200px;
+	position: fixed;
+	right: -1000px;
+	top: 30%; 
+    padding: 5px;
+	background-color: #2B70CA;
+	color: white;
+}
+.podskazki a{
+	float: right;
+	padding-left: 5px;
+	padding-right: 6px;
+	padding-bottom: 2px;
+	padding-top: 0px;
+	color: white;
+}
+.podskazki a:hover{
+	background-color: white;
+	color: #2B70CA;
+}
+#podskazki_text{
+	margin-top: 5px;
+	padding: 5px;
+	background-color: white;
+	color: black;
+}
 
 /* ========== Стили вкладок ========== */
 .vkladki{
@@ -179,6 +216,7 @@ p, table{
 	background-color: #2B70CA;
 	border-right: 2px solid #2B70CA;
 	border-top: 2px solid #2B70CA;
+	border-bottom: 2px solid #2B70CA;
 }
 .vkladki li:first-child{
 	border-left: 2px solid #2B70CA;
@@ -194,21 +232,23 @@ p, table{
 .vkladki li:hover a{
 	color: #265CA6;
 }
-
 #vkl_bd_plus {
 	background-color: white;
+	border-bottom: none;
 }
 #vkl_bd_plus a{
 	color: #265CA6;
 }
 #vkl_dt_plus {
 	background-color: white;
+	border-bottom: none;
 }
 #vkl_dt_plus a{
 	color: #265CA6;
 }
 #vkl_dp_plus {
 	background-color: white;
+	border-bottom: none;
 }
 #vkl_dp_plus a{
 	color: #265CA6;
