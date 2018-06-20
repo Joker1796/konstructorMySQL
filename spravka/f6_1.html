@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Конструктор запросов</title>
+		<link rel="stylesheet" href="../style.css">
+		<script src="../jquery-3.2.1.min.js"></script>
+		<script src="../script.js"></script>
+	</head>
+	
+<body>
+
+<!--================= ШАПКА ===================-->
+	<header>
+		<div class="hed">
+			<nav>
+				<ul>
+					<li><a href="../index.html">Что это?</a>
+					<li><a href="../kostruct.html">Конструктор</a>
+					<li><a href="../faq.html">Справочник</a>
+					<li><a href="../index.html"><img class="logo" src="../logo.png"></a>
+				</ul>
+			<nav>	
+		</div>
+	</header>
+	
+<!--================= КОНТЕНТ ===================-->
+<a href="#top"><img class="strelka" src="../up.png"></a>
+
+<div class="hr_zagolovok">Изменение свойств таблицы : Переименование таблицы (ALTER TABLE RENAME)</div>
+	<div class="content">
+		<p>
+			Изменение свойств таблицы производиться при помощи команды ALTER TABLE.
+		</p>
+			<h2>Синтаксис команды ALTER TABLE</h2>
+			<hr>
+<div class="vid_zap">
+ALTER [IGNORE] TABLE tbl_name alter_specification [, alter_specification ...]
+</div>
+		<p>
+			Команда <b>ALTER TABLE</b> позволяет изменять внутреннюю структуру уже существующей таблицы.
+		</p>
+		<p>
+			<b>tbl_name</b>
+			- Задает имя таблицы, в которой будут производиться изменения.
+		</p>
+		<p>
+			<b>IGNORE</b>
+			- Если этот параметр не задан, то при обнаружении дублирующих значений в уникальных ключах 
+			в новой таблице производиться отмена всех изменений. В противном случае при обнаружении 
+			дублирующих значений в уникальных ключах первая запись с дублирующим ключем остается, а 
+			остальные удаляются.
+		</p>
+		<p>
+			<b>alter_specification</b>
+			- Задает непосредственно само действие, которое должно быть произведено с таблицей.
+		</p>
+		<p>
+			Возможные синтаксисы:
+		</p>
+		
+<div class="vid_zap">
+ADD [COLUMN] create_definition [FIRST | AFTER column_name ]
+</div>
+<div class="vid_zap">
+ADD [COLUMN] (create_definition, create_definition,...)
+</div>
+<div class="vid_zap">
+ADD INDEX [index_name] (index_col_name,...)
+</div>
+<div class="vid_zap">
+ADD PRIMARY KEY (index_col_name,...)
+</div>
+<div class="vid_zap">
+ADD UNIQUE [index_name] (index_col_name,...)
+</div>
+<div class="vid_zap">
+ADD FULLTEXT [index_name] (index_col_name,...)
+</div>
+<div class="vid_zap">
+ADD [CONSTRAINT symbol] FOREIGN KEY index_name (index_col_name,...) [reference_definition]
+</div>
+<div class="vid_zap">
+ALTER [COLUMN] col_name {SET DEFAULT literal | DROP DEFAULT}
+</div>
+<div class="vid_zap">
+CHANGE [COLUMN] old_col_name create_definition [FIRST | AFTER column_name]
+</div>
+<div class="vid_zap">
+MODIFY [COLUMN] create_definition [FIRST | AFTER column_name]
+</div>
+<div class="vid_zap">
+DROP [COLUMN] col_name
+</div>
+<div class="vid_zap">
+DROP PRIMARY KEY
+</div>
+<div class="vid_zap">
+DROP INDEX index_name
+</div>
+<div class="vid_zap">
+DISABLE KEYS
+</div>
+<div class="vid_zap">
+ENABLE KEYS
+</div>
+<div class="vid_zap">
+RENAME [TO] new_tbl_name
+</div>
+<div class="vid_zap">
+ORDER BY col
+</div>
+<div class="vid_zap">
+table_options
+</div>
+		<p>
+			<b>ADD [COLUMN] create_definition [FIRST | AFTER column_name ]</b>
+			Используется для добавления нового поля в таблицу. При этом можно четко указать позиционирование 
+			нового поля.
+		</p>
+		<p>
+			<b>COLUMN</b>
+			- Необязательный параметр, который может быть опущен.
+		</p>
+		<p>
+			<b>create_definition</b>
+			- Определение имени и свойств нового столбца. Синтаксис идентичен определению столбца при 
+			создании таблицы (CREATE TABLE).
+		</p>
+		<p>
+			<b>FIRST</b>
+			- Указывает, что новое поле необходимо добавить в самое начало списка полей таблицы (по 
+			умолчанию новое поле добавляется в конец списка).
+		</p>
+		<p>
+			<b>AFTER column_name</b>
+			- Задает имя поля в таблице, после которого будет добавлено новое поле.
+			Допустим, у нас есть таблица users со следующими полями: name, age
+			Добавим новое поле country в конец списка:
+		</p>
+<div class="vid_zap">
+<pre>
+ALTER TABLE
+    `users`
+ADD
+    `country` VARCHAR(64) NOT NULL
+</pre>
+</div>
+<p>	
+Список полей таблицы users:
+</p>
+<div class="vid_zap">
+SHOW COLUMNS FROM `users`;
+</div>
+<div class="vid_zap">
+<pre>
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| name    | varchar(50) | YES  |     | NULL    |       |
+| age     | int(3)      | YES  |     | NULL    |       |
+| country | varchar(64) | NO   |     |         |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.03 sec)
+</pre>
+</div>
+<p>
+Добавим новое поле id в начало списка:
+</p>
+
+<div class="vid_zap">
+<pre>
+ALTER TABLE
+    `users`
+ADD
+    `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+FIRST
+</pre>
+</div>
+<p>
+Список полей таблицы users:
+</p>
+<div class="vid_zap">
+SHOW COLUMNS FROM `users`;
+</div>
+<div class="vid_zap">
+<pre>
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name    | varchar(50) | YES  |     | NULL    |                |
+| age     | int(3)      | YES  |     | NULL    |                |
+| country | varchar(64) | NO   |     |         |                |
++---------+-------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+</pre>
+</div>
+<p>
+Добавим новое поле city перед полем country (т.е. после поля age):
+</p>
+<div class="vid_zap">
+<pre>
+ALTER TABLE
+    `users`
+ADD
+    `city` VARCHAR(64)
+AFTER
+    `age`
+</pre>
+</div>
+<p>
+Список полей таблицы users:
+</p>
+<div class="vid_zap">
+SHOW COLUMNS FROM `users`;
+</div>
+<div class="vid_zap">
+<pre>
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name    | varchar(50) | YES  |     | NULL    |                |
+| age     | int(3)      | YES  |     | NULL    |                |
+| city    | varchar(64) | YES  |     | NULL    |                |
+| country | varchar(64) | NO   |     |         |                |
++---------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+</pre>
+</div>
+		<p>
+			<b>ADD [COLUMN] (create_definition, create_definition,...)</b>
+			- Добавляет одно поле или группу полей в таблицу.
+		</p><p>
+			<b>COLUMN</b>
+			- Необязательный параметр, который может быть опущен.
+		</p><p>
+			<b>create_definition</b>
+			- Определение имени и свойств нового столбца. Синтаксис идентичен определению столбца 
+			при создании таблицы (<b>CREATE TABLE</b>).
+		</p><p>
+			Допустим, у нас есть таблица users со следующими полями:
+		</p>
+<div class="vid_zap">
+SHOW COLUMNS FROM `users`;
+</div>
+<div class="vid_zap">
+<pre>
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(50) | YES  |     | NULL    |                |
+| age   | int(3)      | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+</pre>
+</div>
+<p>
+Добавим новые поля city и country:
+</p>
+<div class="vid_zap">
+<pre>
+ALTER TABLE
+    `users`
+ADD
+    (
+        `city` VARCHAR(64) NOT NULL,
+        `country` VARCHAR(64) NOT NULL
+    )
+</pre>
+</div>
+<p>
+Список полей таблицы users:
+</p>
+<div class="vid_zap">
+SHOW COLUMNS FROM `users`;
+</div>
+<div class="vid_zap">
+<pre>
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name    | varchar(50) | YES  |     | NULL    |                |
+| age     | int(3)      | YES  |     | NULL    |                |
+| city    | varchar(64) | NO   |     |         |                |
+| country | varchar(64) | NO   |     |         |                |
++---------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+</pre>
+</div>
+		<p>
+			<b>ALTER TABLE table_name_old RENAME table_name_new</b>
+		</p><p>
+			table_name_old - старое имя таблицы, которое нам нужно переименовать;<br>
+			table_name_new - новое имя таблицы.
+		</p><p>
+			Допустим, нам нужно переименовать таблицу search в search_en:
+		</p>
+<div class="vid_zap">
+<pre>
+$sql="ALTER TABLE search RENAME search_en";
+mysql_query($sql);
+</pre>
+</div>
+<hr>
+		<div class="next">
+			<button class="button"><a href="f6.html">< Предыдующая статья</a></button>
+			<button class="button"><a href="f6_2.html">Следующая статья ></a></button>
+		</div>
+	</div>
+	
+<!--================= ПОДВАЛ ===================-->
+	<footer>
+		<div class="foot">
+			Горлов Евгений Сергеевич 2017-2018<sup>©</sup>
+		</div>	
+	</footer>
+	
+</body>
+</html>
+<!---->

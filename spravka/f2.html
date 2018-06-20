@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Конструктор запросов</title>
+		<link rel="stylesheet" href="../style.css">
+		<script src="../jquery-3.2.1.min.js"></script>
+		<script src="../script.js"></script>
+	</head>
+	
+<body>
+
+<!--================= ШАПКА ===================-->
+	<header>
+		<div class="hed">
+			<nav>
+				<ul>
+					<li><a href="../index.html">Что это?</a>
+					<li><a href="../kostruct.html">Конструктор</a>
+					<li><a href="../faq.html">Справочник</a>
+					<li><a href="../index.html"><img class="logo" src="../logo.png"></a>
+				</ul>
+			<nav>	
+		</div>
+	</header>
+	
+<!--================= КОНТЕНТ ===================-->
+<a href="#top"><img class="strelka" src="../up.png"></a>
+
+<div class="hr_zagolovok">Создание базы данных MySQL (CREATE DATABASE)</div>
+	<div class="content">
+		
+		<p>
+			Создание базы данных выполняется с помощью оператора CREATE DATABASE.
+		</p>
+			<h2>Синтаксис оператора CREATE DATABASE</h2>
+		<hr>
+			<div class="vid_zap">CREATE DATABASE [IF NOT EXISTS] db_name [CHARACTER SET charset] [COLLATE collation];</div>
+		<p>	
+			<b>db_name</b>
+			- Имя, которое будет присвоено создаваемой базе данных.
+		</p>
+		<p>
+			<b>IF NOT EXISTS</b>
+			- Если не указать этот параметр, то при попытке создания базы данных с уже существующим именем, 
+			возникнет ошибка выполнения команды.
+		</p>
+		<p>
+			<b>CHARACTER SET, COLLATE</b>
+			- Используется для задания стандартной кодировки таблицы и порядка сортировки.
+		</p>
+		<p>		
+			Если при создании таблицы эти параметры не указываются, то кодировка и порядок сортировки вновь 
+			создаваемой таблицы берутся из значений, указанных для всей базы данных. Если задан параметр 
+			CHARACTER SET, но не задан параметр COLLATE, то используется стандартный порядок сортировки. Если 
+			задан параметр COLLATE, но не задан CHARACTER SET, то кодировку определяет первая часть имени 
+			порядка сортировки в COLLATE.
+		</p>
+		<p>
+			Кодировка, заданная в CHARACTER SET, должна поддерживаться сервером (latin1 или sjis), а порядок 
+			сортировки должен быть допустимым для текущей кодировки.
+		</p>	
+			<h2>Примеры использования CREATE DATABASE</h2>
+			<hr>
+			Следущий пример создает базу данных "my_db":
+
+			<div class="vid_zap">CREATE DATABASE `my_db`</div>
+			или
+			<div class="vid_zap">CREATE DATABASE `my_db` CHARACTER SET utf8 COLLATE utf8_general_ci;</div>
+		
+		<p>
+			Для того, чтобы посмотреть настройки уже существующей базы данных необходимо выполнить оператор 
+			SHOW CREATE DATABASE
+		</p>
+		
+<div class="vid_zap">
+<pre>mysql> SHOW CREATE DATABASE `test`;
++----------+-----------------------------------------------------------------+
+| Database | Create Database                                                 |
++----------+-----------------------------------------------------------------+
+| test     | CREATE DATABASE `test` /*!40100 DEFAULT CHARACTER SET latin1 */ |
++----------+-----------------------------------------------------------------+
+1 row in set (0.02 sec)</pre>
+</div>
+
+		<p>
+			При создании новой базы данных в MySQL следует придерживаться некоторых правил относительно имени 
+			базы данных:
+		</p>
+		<p>
+			Максимальная длина имени не должна превышать 64 символов.<br>
+			Разрешены любые символы, которые допускаются в имени каталога, за исключением / (слеш) и . (точка). <br>
+			Но следует принять во внимание, что нельзя использовать символы ASCII(0) и ASCII(255).<br>
+		</p>
+		<hr>
+		<div class="next">
+			<button class="button"><a href="f1.html">< Предыдующая статья</a></button>
+			<button class="button"><a href="f3.html">Следующая статья ></a></button>
+		</div>
+	</div>
+	
+<!--================= ПОДВАЛ ===================-->
+	<footer>
+		<div class="foot">
+			Горлов Евгений Сергеевич 2017-2018<sup>©</sup>
+		</div>	
+	</footer>
+	
+</body>
+</html>
+<!---->

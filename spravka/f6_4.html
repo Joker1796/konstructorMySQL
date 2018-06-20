@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Конструктор запросов</title>
+		<link rel="stylesheet" href="../style.css">
+		<script src="../jquery-3.2.1.min.js"></script>
+		<script src="../script.js"></script>
+	</head>
+	
+<body>
+
+<!--================= ШАПКА ===================-->
+	<header>
+		<div class="hed">
+			<nav>
+				<ul>
+					<li><a href="../index.html">Что это?</a>
+					<li><a href="../kostruct.html">Конструктор</a>
+					<li><a href="../faq.html">Справочник</a>
+					<li><a href="../index.html"><img class="logo" src="../logo.png"></a>
+				</ul>
+			<nav>	
+		</div>
+	</header>
+	
+<!--================= КОНТЕНТ ===================-->
+<a href="#top"><img class="strelka" src="../up.png"></a>
+
+<div class="hr_zagolovok">Изменение свойств таблицы : Удаление столбцов (ALTER TABLE DROP)</div>
+	<div class="content">
+		<p>
+			Удаление столбца можно сделать при помощи следующей конструкции:
+		</p>
+<div class="vid_zap">
+ALTER TABLE table_name DROP field_name
+</div>
+		<p>
+			<b>table_name</b>
+			- имя таблицы, в которой будет удален столбец;
+		</p><p>
+			<b>field_name</b>
+			- имя удаляемого столбца.
+		</p>
+<div class="vid_zap">
+<pre>
+$sql="ALTER TABLE search DROP id_num";
+mysql_query($sql);
+</pre>
+</div>
+		<p>
+			Если мы хотим удалить сразу несколько полей, то надо через запятую повторить DROP 
+			field_name для каждого столбца:
+		</p>
+<div class="vid_zap">
+<pre>
+$sql="ALTER TABLE search DROP id_1, DROP id_2, DROP id_3";
+mysql_query($sql);
+</pre>
+</div>
+<hr>
+		<div class="next">
+			<button class="button"><a href="f6_3.html">< Предыдующая статья</a></button>
+			<button class="button"><a href="f7.html">Следующая статья ></a></button>
+		</div>
+	</div>
+	
+<!--================= ПОДВАЛ ===================-->
+	<footer>
+		<div class="foot">
+			Горлов Евгений Сергеевич 2017-2018<sup>©</sup>
+		</div>	
+	</footer>
+	
+</body>
+</html>
+<!---->

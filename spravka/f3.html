@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Конструктор запросов</title>
+		<link rel="stylesheet" href="../style.css">
+		<script src="../jquery-3.2.1.min.js"></script>
+		<script src="../script.js"></script>
+	</head>
+	
+<body>
+
+<!--================= ШАПКА ===================-->
+	<header>
+		<div class="hed">
+			<nav>
+				<ul>
+					<li><a href="../index.html">Что это?</a>
+					<li><a href="../kostruct.html">Конструктор</a>
+					<li><a href="../faq.html">Справочник</a>
+					<li><a href="../index.html"><img class="logo" src="../logo.png"></a>
+				</ul>
+			<nav>	
+		</div>
+	</header>
+	
+<!--================= КОНТЕНТ ===================-->
+<a href="#top"><img class="strelka" src="../up.png"></a>
+
+<div class="hr_zagolovok">Удаление базы данных MySQL (DROP DATABASE)</div>
+	<div class="content">
+		<p>
+			Для удаления базы данных используется оператор <b>DROP DATABASE</b>.
+		</p>
+			<h2>Синтаксис:</h2>
+			<hr>
+			<div class="vid_zap">DROP DATABASE [IF EXISTS] db_name</div>
+		<p>
+			<b>db_name</b>
+			- Задает имя базы данных, которую необходимо удалить.
+		</p>
+		<p>
+			<b>IF EXISTS</b>
+			- Если не указать этот параметр, то при попытке удаления не существующей базы данных, возникнет 
+			ошибка выполнения команды. Данный параметр доступен в MySQL 3.22 и более поздних версиях.
+		</p>
+		<p>
+			При выполнении команды <b>DROP DATABASE</b> удаляется как сама база данных, так и все таблицы, которые 
+			в ней находятся.
+		</p>
+		<p>
+			Если производится удаление базы данных, которая символически связана с другой базой данных, то 
+			удалиться как сама ссылка, так и оригинальная база данных.
+		</p>
+			В следующем примере мы удалим базу данных db_test:
+
+			<div class="vid_zap">DROP DATABASE `db_test`</div>
+		<hr>
+		<div class="next">
+			<button class="button"><a href="f2.html">< Предыдующая статья</a></button>
+			<button class="button"><a href="f4.html">Следующая статья ></a></button>
+		</div>
+	</div>
+	
+<!--================= ПОДВАЛ ===================-->
+	<footer>
+		<div class="foot">
+			Горлов Евгений Сергеевич 2017-2018<sup>©</sup>
+		</div>	
+	</footer>
+	
+</body>
+</html>
+<!---->

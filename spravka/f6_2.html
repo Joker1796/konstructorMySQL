@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Конструктор запросов</title>
+		<link rel="stylesheet" href="../style.css">
+		<script src="../jquery-3.2.1.min.js"></script>
+		<script src="../script.js"></script>
+	</head>
+	
+<body>
+
+<!--================= ШАПКА ===================-->
+	<header>
+		<div class="hed">
+			<nav>
+				<ul>
+					<li><a href="../index.html">Что это?</a>
+					<li><a href="../kostruct.html">Конструктор</a>
+					<li><a href="../faq.html">Справочник</a>
+					<li><a href="../index.html"><img class="logo" src="../logo.png"></a>
+				</ul>
+			<nav>	
+		</div>
+	</header>
+	
+<!--================= КОНТЕНТ ===================-->
+<a href="#top"><img class="strelka" src="../up.png"></a>
+
+<div class="hr_zagolovok">Изменение свойств таблицы : Вставка столбцов (ALTER TABLE ADD)</div>
+	<div class="content">
+		<p>
+			Вставку нового столбца можно осуществить при помощи следующей конструкции:
+		</p>
+<div class="vid_zap">
+ALTER TABLE table_name ADD field_name parametrs
+</div>
+		<p>
+			<b>table_name</b>
+			- имя таблицы, в которой будет вставлен новый столбец;
+		</p><p>
+			<b>field_name</b>
+			- имя вставляемого столбца;
+		</p><p>
+			<b>parametrs</b>
+			- параметры, описывающие вставляемый столбец.
+		</p><p>
+			Обязательным параметром является указание типа данных. (Про возможные типы данных подробно 
+			написано в Создание и удаление таблицы).
+		</p><p>
+			Например, нам надо вставить в таблицу my_frends столбец под названием adress_2, который будет 
+			содержать текстовые значения:
+		</p>
+<div class="vid_zap">
+<pre>
+$sql="ALTER TABLE my_frends ADD adress_2 TEXT";
+mysql_query($sql);
+</pre>
+</div>
+		<p>
+			По умолчанию новый столбец вставляется в конец таблицы.
+		</p><p>
+			Если необходимо, чтобы столбец встал в начало таблицы, нужно после параметров вставляемого 
+			столбца написать ключевое слово FIRST:
+		</p>
+<div class="vid_zap">
+<pre>
+$sql="ALTER TABLE my_frends ADD adress_2 TEXT FIRST";
+mysql_query($sql);
+</pre>
+</div>
+		<p>
+			Теперь только что вставленный столбец окажется вначале таблицы.
+		</p><p>
+			Если необходимо, чтобы столбец был вставлен не в начале таблицы, и не в конце, а после 
+			определенного столбца, то нужно применить ключевое слово AFTER имя столбца, после которого 
+			будет установлен новый столбец:
+		</p>
+<div class="vid_zap">
+<pre>
+$sql="ALTER TABLE my_frends ADD adress_2 TEXT AFTER adress_1";
+mysql_query($sql);
+</pre>
+</div>
+		<p>
+			В этом примере новый столбец adress_2 будет установлен после столбца adress_1.
+		</p><p>
+			Если нужно дописать к таблице не один, а несколько столбцов, то для каждого столбца нужно ADD 
+			field_name parametrs записать через запятую:
+		</p>
+<div class="vid_zap">
+<pre>
+$sql="ALTER TABLE my_frends ADD adress_2 TEXT,
+      ADD adress_3 TEXT, ADD adress_4 TEXT";
+mysql_query($sql);
+</pre>
+</div>
+		<p>
+			В случае, если надо дописать два столбца внутри таблицы, можно поступить следующим образом:
+		</p>
+<div class="vid_zap">
+<pre>
+$sql="ALTER TABLE my_frends ADD adress_2 TEXT AFTER adress_1,
+      ADD adress_3 TEXT AFTER adress_2";
+mysql_query($sql);
+</pre>
+</div>
+		<p>
+			Т.е. мы первый вставляемый столбец записываем после adress_1, а второй после первого.
+		</p>
+		<hr>
+		<div class="next">
+			<button class="button"><a href="f6_1.html">< Предыдующая статья</a></button>
+			<button class="button"><a href="f6_3.html">Следующая статья ></a></button>
+		</div>
+	</div>
+	
+<!--================= ПОДВАЛ ===================-->
+	<footer>
+		<div class="foot">
+			Горлов Евгений Сергеевич 2017-2018<sup>©</sup>
+		</div>	
+	</footer>
+	
+</body>
+</html>
+<!---->

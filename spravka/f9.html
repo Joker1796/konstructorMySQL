@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Конструктор запросов</title>
+		<link rel="stylesheet" href="../style.css">
+		<script src="../jquery-3.2.1.min.js"></script>
+		<script src="../script.js"></script>
+	</head>
+	
+<body>
+
+<!--================= ШАПКА ===================-->
+	<header>
+		<div class="hed">
+			<nav>
+				<ul>
+					<li><a href="../index.html">Что это?</a>
+					<li><a href="../kostruct.html">Конструктор</a>
+					<li><a href="../faq.html">Справочник</a>
+					<li><a href="../index.html"><img class="logo" src="../logo.png"></a>
+				</ul>
+			<nav>	
+		</div>
+	</header>
+	
+<!--================= КОНТЕНТ ===================-->
+<a href="#top"><img class="strelka" src="../up.png"></a>
+
+<div class="hr_zagolovok">Обновление записей в таблице(UPDATE)</div>
+	<div class="content">
+		<p>
+			Обновление записи осуществляется командой <b>UPDATE</b>.
+		</p>
+			<h2>Синтаксис команды UPDATE</h2>
+			<hr>
+<div class="vid_zap">
+<pre>
+UPDATE [LOW_PRIORITY] [IGNORE] tbl_name
+    SET col_name1=expr1 [, col_name2=expr2, ...]
+    [WHERE where_definition]
+    [LIMIT #]
+</pre>
+</div>
+		<p>
+			<b>tbl_name</b>
+			- Задает имя таблицы, в которой будут обновляться записи. На момент запуска команды UPDATE
+			 таблица с таким именем должна существовать в базе данных.
+		</p><p>
+			<b>LOW_PRIORITY</b>
+			- Если указан этот параметр, то обновление записи будет отложена до тех пор, пока другие 
+			сценарии не закончат чтение из этой таблицы.
+		</p><p>
+			<b>IGNORE</b>
+			- Если некоторые поля таблицы имеют ключи PRIMARY или UNIQUE, и производится обновление строки,
+			 в которой эти поля имеют дублирующее значение, то действие команды аварийно завершается и 
+			 выдается ошибка №1062 ("Duplicate entry 'val' for key N"). Если в команде INSERT указано 
+			 ключевое слово IGNORE, то обновление записей не прерывается, а строки с дублирующими значениями 
+			 просто не изменяются.
+		</p><p>
+			<b>SET</b>
+			- После этого ключевого слова должен идти список полей таблицы, которые будут обновлены и 
+			непосредственно сами новые значения полей в виде:
+		</p>
+<div class="vid_zap">
+имя поля='значение'
+</div>
+<p>
+Следующий пример производит обновление поля country у ВСЕХ записей в таблице users:
+</p>
+<div class="vid_zap">
+<pre>
+UPDATE
+    `users`
+SET
+    `country`='Russia'
+</pre>
+</div>
+<p>
+А здесь обновление полей country и city у ВСЕХ записей таблицы users:
+</p>
+<div class="vid_zap">
+<pre>
+UPDATE
+    `users`
+SET
+    `country`='Russia',
+    `city`='Ryazan'
+</pre>
+</div>
+		<p>
+			Если новое значение, присваиваемое командой UPDATE соответствует старому, то обновление 
+			этого поля не происходит.
+		</p><p>
+			Для задания нового значения можно использовать выражения.
+		</p><p>
+			Следующий пример увеличит возраст всех пользователей, записанных в таблице users на один год:
+		</p>
+<div class="vid_zap">
+<pre>
+UPDATE
+    `users`
+SET
+    `age`=`age`+1
+</pre>
+</div>
+<p>
+<b>WHERE</b>
+- Задает условие отбора записей, подлежащих изменению.
+</p><p>
+Следующий пример изменит название города в записях пользователей с "Ryazan" на "Рязань":
+</p>
+<div class="vid_zap">
+<pre>
+UPDATE
+    `users`
+SET
+    `city`='Рязань'
+WHERE
+    `city`='Ryazan'
+</pre>
+</div>
+<p>
+<b>LIMIT</b>
+- Задает максимальное количество строк, которые могут быть изменены.
+</p>
+
+<div class="vid_zap">
+<pre>
+UPDATE
+    `users`
+SET
+    `age`=`age`+1
+LIMIT
+    5
+</pre>
+</div>
+<hr>
+		<div class="next">
+			<button class="button"><a href="f8.html">< Предыдующая статья</a></button>
+			<button class="button"><a href="f10.html">Следующая статья ></a></button>
+		</div>
+	</div>
+	
+<!--================= ПОДВАЛ ===================-->
+	<footer>
+		<div class="foot">
+			Горлов Евгений Сергеевич 2017-2018<sup>©</sup>
+		</div>	
+	</footer>
+	
+</body>
+</html>
+<!---->

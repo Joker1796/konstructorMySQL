@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Конструктор запросов</title>
+		<link rel="stylesheet" href="../style.css">
+		<script src="../jquery-3.2.1.min.js"></script>
+		<script src="../script.js"></script>
+	</head>
+	
+<body>
+
+<!--================= ШАПКА ===================-->
+	<header>
+		<div class="hed">
+			<nav>
+				<ul>
+					<li><a href="../index.html">Что это?</a>
+					<li><a href="../kostruct.html">Конструктор</a>
+					<li><a href="../faq.html">Справочник</a>
+					<li><a href="../index.html"><img class="logo" src="../logo.png"></a>
+				</ul>
+			<nav>	
+		</div>
+	</header>
+	
+<!--================= КОНТЕНТ ===================-->
+<a href="#top"><img class="strelka" src="../up.png"></a>
+
+<div class="hr_zagolovok">Изменение свойств таблицы : Изменение свойств столбца (ALTER TABLE CHANGE)</div>
+	<div class="content">
+Изменить свойства одного или нескольких столбцов можно при помощи следующей конструкции:
+<div class="vid_zap">
+ALTER TABLE table_name CHANGE field_name_old field_name_new parametrs
+</div>
+		<p>
+			<b>table_name</b>
+			- имя таблицы, в которой находится изменяемый столбец;
+		</p><p>
+			<b>field_name_old</b>
+			- имя столбца изменяемого столбца;
+		</p><p>
+			<b>field_name_new</b>
+			- новое имя изменяемого столбца (должно равняться field_name_old, если мы не хотим поменять 
+			имя столбца);
+		</p><p>
+			<b>parametrs</b>
+			- новые параметры столбца.
+		</p><p>
+			В следующем примере установим тип строки field_1 как текст:
+		</p>
+<div class="vid_zap">
+<pre>
+$sql="ALTER TABLE my_table CHANGE field_1 field_1 TEXT";
+mysql_query($sql);
+</pre>
+</div>
+		<p>
+			А если необходимо при этом еще и переименовать столбец в field_2, то получиться так:
+		</p>
+<div class="vid_zap">
+<pre>
+$sql="ALTER TABLE my_table CHANGE field_1 field_2 TEXT";
+mysql_query($sql);
+</pre>
+</div>
+		<p>
+			В случае, если надо изменить свойства сразу нескольких столбцов, то конструкцию CHANGE 
+			field_name_old field_name_new parametrs повторяем через запятую для каждого столбца:
+		</p>
+<div class="vid_zap">
+<pre>
+$sql="ALTER TABLE my_table CHANGE field_1 field_2 TEXT,
+      CHANGE field_3 field_3 TEXT";
+mysql_query($sql);
+</pre>
+</div>
+<hr>
+		<div class="next">
+			<button class="button"><a href="f6_2.html">< Предыдующая статья</a></button>
+			<button class="button"><a href="f6_4.html">Следующая статья ></a></button>
+		</div>
+	</div>
+	
+<!--================= ПОДВАЛ ===================-->
+	<footer>
+		<div class="foot">
+			Горлов Евгений Сергеевич 2017-2018<sup>©</sup>
+		</div>	
+	</footer>
+	
+</body>
+</html>
+<!---->

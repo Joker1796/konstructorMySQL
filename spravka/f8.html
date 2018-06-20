@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Конструктор запросов</title>
+		<link rel="stylesheet" href="../style.css">
+		<script src="../jquery-3.2.1.min.js"></script>
+		<script src="../script.js"></script>
+	</head>
+	
+<body>
+
+<!--================= ШАПКА ===================-->
+	<header>
+		<div class="hed">
+			<nav>
+				<ul>
+					<li><a href="../index.html">Что это?</a>
+					<li><a href="../kostruct.html">Конструктор</a>
+					<li><a href="../faq.html">Справочник</a>
+					<li><a href="../index.html"><img class="logo" src="../logo.png"></a>
+				</ul>
+			<nav>	
+		</div>
+	</header>
+	
+<!--================= КОНТЕНТ ===================-->
+<a href="#top"><img class="strelka" src="../up.png"></a>
+
+<div class="hr_zagolovok">Удаление строк из таблицы (DELETE FROM)</div>
+	<div class="content">
+		<p>
+			Удаление записей осуществляется командой <b>DELETE FROM</b>.
+		</p>
+			<h2>Синтаксис оператора DELETE FROM</h2>
+			<hr>
+<div class="vid_zap">
+<pre>
+DELETE [LOW_PRIORITY | QUICK] FROM table_name
+    [WHERE where_definition]
+    [ORDER BY ...]
+    [LIMIT rows]
+</pre>
+</div>
+или
+<div class="vid_zap">
+<pre>
+DELETE [LOW_PRIORITY | QUICK] table_name[.*] [,table_name[.*] ...]
+    FROM table-references
+    [WHERE where_definition]
+</pre>
+</div>
+или
+<div class="vid_zap">
+<pre>
+DELETE [LOW_PRIORITY | QUICK]
+    FROM table_name[.*], [table_name[.*] ...]
+    USING table-references
+    [WHERE where_definition]
+</pre>
+</div>
+		<p>
+			Команда <b>DELETE</b> удаляет из таблицы table_name все записи, удовлетворяющие условию where_definition. <br>
+			Если условие WHERE where_definition не задано, то из таблицы table_name удаляются все записи.
+		</p><p>
+			Команда <b>DELETE</b> возвращает количество удаленных записей.
+		</p><p>
+			Следует учитывать, что если в команде <b>DELETE</b> не задано условие WHERE where_definition, 
+			то команда возвратит 0, хотя записи были удалены.
+		</p><p>
+			Если все же необходимо удалить все записи и узнать их количество, то в условии where_definition 
+			нужно задать заведомо истинное значение:
+		</p>
+<div class="vid_zap">
+<pre>
+DELETE FROM
+    `users`
+WHERE
+    1=1
+</pre>
+</div>
+		<p>
+			Но в этом случае выполнение команды происходит значительно медленнее.
+		</p><p>
+			<b>LOW_PRIORITY</b>
+			- Если указано это ключевое слово, то удаление записей из таблицы table_name не будет 
+			произведено до тех пор, пока другие процессы не закончат чтение их этой таблицы.
+		</p><p>
+			<b>QUICK</b>
+			- Если указано это ключевое слово, то при удалении записей обработчик таблицы не будет 
+			объединять индексы, что может ускорить операцию удаления.
+		</p><p>
+			<b>table_name</b>
+			- Имя таблицы в базе данных, из которой будет происходить удаление строк.
+		</p><p>
+			<b>LIMIT</b>
+			- Задает максимальное количество строк, которые могут быть удалены за текущий запрос.
+		</p><p>
+			Следующий запрос удалит из таблицы users только 5 строк:
+		</p>
+<div class="vid_zap">
+<pre>
+DELETE FROM
+    `users`
+LIMIT
+    5
+</pre>
+</div>
+		<p>
+			<b>ORDER BY</b>
+			- Задает имя поля, или имена полей через запятую, по которым происходит сортировка удаляемых записей.
+		</p><p>
+			Эта возможность актуальна при необходимости удалить только определенное кол-во записей, 
+			отсортированных по какому-либо свойству.
+		</p><p>
+			Следующий пример удалит из таблицы users запись самого молодого человека.
+		</p><p>
+			Допустим таблица users имеет следующий вид:
+		</p>
+<div class="vid_zap">
+<pre>
+CREATE TABLE
+    `users`(
+        `name` VARCHAR(255) NOT NULL,
+        `age` SMALLINT(3) NOT NULL
+    )
+</pre>
+</div>
+		<p>
+			Запишем в нее несколько записей:
+		</p>
+<div class="vid_zap">
+<pre>
+INSERT INTO
+    `users` (
+        `name`, `age`
+    )
+VALUES
+    ('Миша', 25),
+    ('Ксюша', 15),
+    ('Настя', 12),
+    ('Саша', 26),
+    ('Дима', 30)
+</pre>
+</div>
+		<p>
+			Таблица users имеет значения:
+		</p>
+<div class="vid_zap">
+<pre>
+SELECT
+    *
+FROM
+    `users`
+</pre>
+</div>
+<div class="vid_zap">
+<pre>
++-------+-----+
+| name  | age |
++-------+-----+
+| Миша  |  25 |
+| Ксюша |  15 |
+| Настя |  12 |
+| Саша  |  26 |
+| Дима  |  30 |
++-------+-----+
+5 rows in set (0.00 sec)
+</pre>
+</div>
+		<p>
+			Удаляем самого молодого:
+		</p>
+<div class="vid_zap">
+<pre>
+DELETE FROM
+    `users`
+ORDER BY
+    `age`
+LIMIT
+    1
+</pre>
+</div>
+		<p>
+			Теперь таблица имеет значения:
+		</p>
+<div class="vid_zap">
+<pre>
+SELECT
+    *
+FROM
+    `users`
+</pre>
+</div>
+<div class="vid_zap">
+<pre>
++-------+-----+
+| name  | age |
++-------+-----+
+| Миша  |  25 |
+| Ксюша |  15 |
+| Саша  |  26 |
+| Дима  |  30 |
++-------+-----+
+4 rows in set (0.00 sec)
+</pre>
+</div>
+		<p>
+			Можем также удалить самого старого:
+		</p>
+<div class="vid_zap">
+<pre>
+DELETE FROM
+    `users`
+ORDER BY
+    `age` DESC
+LIMIT
+    1
+</pre>
+</div>
+		<p>
+			Теперь таблица имеет значения:
+		</p>
+<div class="vid_zap">
+<pre>
+SELECT
+    *
+FROM
+    `users`
+</pre>
+</div>
+<div class="vid_zap">
+<pre>
++-------+-----+
+| name  | age |
++-------+-----+
+| Миша  |  25 |
+| Ксюша |  15 |
+| Саша  |  26 |
++-------+-----+
+3 rows in set (0.00 sec)
+</pre>
+</div>
+		<p>
+			Сортировка удаляемых записей при помощи команды ORDER BY появилась в MySQL начиная 
+			с версии 4.0.
+		</p><p>
+			<b>FROM table-references и USING ...</b>
+			- Позволяют удалять записи сразу из нескольких таблиц руководствуясь многотабличным 
+			условием WHERE where_definition.
+		</p><p>
+			Следующие два примера равнозначны по производимым действиям и удаляют одинаковые записи 
+			в таблицах table_1 и table_2 и используя при поиске значений еще и таблицу table_3:
+		</p>
+<div class="vid_zap">
+<pre>
+DELETE
+    `table_1`,
+    `table_2`
+FROM
+    `table_1`,
+    `table_2`,
+    `table_3`
+WHERE
+    `table_1`.`id`=`table_2`.`id` &&
+    `table_2`.`id`=`table_3`.`id`
+</pre>
+</div>
+		<p>
+			Аналогичный запрос:
+		</p>
+<div class="vid_zap">
+<pre>
+DELETE FROM
+    `table_1`,
+    `table_2`
+USING
+    `table_1`,
+    `table_2`,
+    `table_3`
+WHERE
+    `table_1`.`id`=`table_2`.`id` &&
+    `table_2`.`id`=`table_3`.`id`
+</pre>
+</div>
+		<p>
+			Возможность многотабличного удаления записей появилась в MySQL начиная с версии 4.0.
+		</p>
+		<hr>
+		<div class="next">
+			<button class="button"><a href="f7.html">< Предыдующая статья</a></button>
+			<button class="button"><a href="f9.html">Следующая статья ></a></button>
+		</div>
+	</div>
+	
+<!--================= ПОДВАЛ ===================-->
+	<footer>
+		<div class="foot">
+			Горлов Евгений Сергеевич 2017-2018<sup>©</sup>
+		</div>	
+	</footer>
+	
+</body>
+</html>
+<!---->

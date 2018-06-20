@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Конструктор запросов</title>
+		<link rel="stylesheet" href="../style.css">
+		<script src="../jquery-3.2.1.min.js"></script>
+		<script src="../script.js"></script>
+	</head>
+	
+<body>
+
+<!--================= ШАПКА ===================-->
+	<header>
+		<div class="hed">
+			<nav>
+				<ul>
+					<li><a href="../index.html">Что это?</a>
+					<li><a href="../kostruct.html">Конструктор</a>
+					<li><a href="../faq.html">Справочник</a>
+					<li><a href="../index.html"><img class="logo" src="../logo.png"></a>
+				</ul>
+			<nav>	
+		</div>
+	</header>
+	
+<!--================= КОНТЕНТ ===================-->
+<a href="#top"><img class="strelka" src="../up.png"></a>
+
+<div class="hr_zagolovok">Удаление таблицы из базы данных MySQL (DROP TABLE)</div>
+	<div class="content">
+		
+		<p>
+			Удаление таблицы производится командой <b>DROP TABLE</b>.
+		</p>
+			<h2>Синтаксис оператора DROP TABLE</h2>
+		<hr>
+			<div class="vid_zap">DROP TABLE [IF EXISTS] tbl_name [, tbl_name,...] [RESTRICT | CASCADE]</div>
+		<p>
+			Этот оператор удаляет таблицу или таблицы из текущей базы данных.
+		</p>
+		<p>
+			<b>tbl_name</b>
+			- Имя удаляемой таблицы.
+		</p>
+		<p>
+			<b>IF EXISTS</b>
+			- Если указан этот параметр, то при попытке удаления несущестующей таблицы ошибки не возникнет. 
+			В противном случае возникнет ошибка выполнения команды. Данный параметр появился в MySQL начиная 
+			с версии 3.22.
+		</p>
+		<p>
+			<b>RESTRICT</b> и <b>CASCADE</b>
+			- Не несут никакой функциональности. Оставлены для упрощения переноса программы.
+		</p>
+			В следующем примере производится удаление таблицы users:
+			<div class="vid_zap">DROP TABLE `users`</div>
+			<hr>
+		<div class="next">
+			<button class="button"><a href="f4.html">< Предыдующая статья</a></button>
+			<button class="button"><a href="f6.html">Следующая статья ></a></button>
+		</div>
+	</div>
+	
+<!--================= ПОДВАЛ ===================-->
+	<footer>
+		<div class="foot">
+			Горлов Евгений Сергеевич 2017-2018<sup>©</sup>
+		</div>	
+	</footer>
+	
+</body>
+</html>
+<!---->

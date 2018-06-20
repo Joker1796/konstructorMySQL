@@ -1,0 +1,252 @@
+
+/* ========== Общие стили страниц ========== */
+body{
+	margin: 0px;
+	padding: 0px;
+	font-family: "Franklin Gothic Medium";
+}
+h2{
+	text-align: left;
+	margin-left: 40px;
+}
+
+/* ========== Стиль подвала ========== */
+footer{
+	border-top: 4px solid #2B70CA;
+	text-align: center;
+	padding: 30;
+}
+.foot{
+	width: 65%;
+	margin: auto;
+	padding: 20px;
+	padding-top: 10px;
+	font-family: Arial;
+	font-size: 14px;
+}
+
+/* ========== Стиль шапки ========== */
+header{
+	font-family: "Impact";
+	margin: 0px;
+	padding: 0px;
+	background-color: #2B70CA;
+}
+.hed{
+	width: 65%;
+	margin: auto;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+.logo{
+	height: 45px;
+
+
+}
+nav{
+	list-style: none;
+	margin: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+nav li{
+	display: inline;
+	padding: 15px;
+	border-right: 2px solid #2B70CA;
+}
+nav li:last-child{
+	padding: 0px;
+	position: absolute;
+	border-right: none;
+	top: 6px;
+	left: 75%;
+}
+nav li:last-child:hover{ 
+	background-color: #2B70CA;
+}
+nav li:first-child{
+	border-left: 2px solid #2B70CA;
+}
+
+nav li:hover{
+	background-color: white;
+}
+nav li:hover a{
+	color: #265CA6;
+}
+nav a{
+	text-decoration: none; 
+	color: white;
+	font-size: 24px;
+}
+/* ========== Стиль контента ========== */
+.content{
+	margin: auto;
+	padding: 30px;
+	width: 70%;
+	min-height: 400px;
+}
+
+button a{
+	color: white;
+}
+.next{
+	margin: auto;
+	text-align: center;
+}
+
+.sintaksis{
+	width: 50%;
+	margin: auto;
+}
+.sintaksis li{
+	margin: 0px;
+	padding: 6px;
+	color: #2B70CA;
+}
+.sintaksis li:hover a{
+	color: #214683;
+}
+
+.zapros{
+	margin: auto;
+	width: 90%;
+	padding: 5px;
+}
+.vid_zap{
+	margin: 15px;
+	border: 2px dashed #2B70CA;
+	background-color: #F2F7FD;
+	padding: 8px;
+	padding-left: 20px;
+	color: black;
+	font-family: Courier New;
+}
+.hr_zagolovok{
+	border-bottom: 4px solid #2B70CA;
+	padding-bottom: 5px;
+	padding-top: 40px;
+	font-size: 40px;
+	padding-left: 25px;
+	padding-right: 25px;
+	text-align: center;
+	color: #2B70CA;
+}
+
+.strelka{
+	width: 75px;
+	float: right;
+	position: fixed; /* Фиксированное положение */
+    right: 10px; 
+    top: 85%; 
+    padding: 10px;
+}
+#strelka_block{
+	position: absolute;
+}
+
+a{
+	text-decoration: none; 
+	color: #2B70CA;
+	font-family: "Franklin Gothic Medium";
+}
+hr{
+	color: #2B70CA;
+    background-color: #2B70CA; /* Цвет линии для браузера Firefox и Opera */
+    height: 1px;
+}
+p, table{
+	font-family: Arial;
+}
+#zap{
+	margin-top: 8px;
+	font-size: 24px;
+	padding: 5px;
+
+}
+
+
+/* ========== Стили вкладок ========== */
+.vkladki{
+	list-style: none;
+	margin: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+.vkladki li{
+	display: inline;
+	padding: 10px;
+	background-color: #2B70CA;
+	border-right: 2px solid #2B70CA;
+	border-top: 2px solid #2B70CA;
+}
+.vkladki li:first-child{
+	border-left: 2px solid #2B70CA;
+}
+.vkladki a{
+	text-decoration: none; 
+	color: white;
+	font-size: 18px;
+}
+.vkladki li:hover{
+	background-color: white;
+}
+.vkladki li:hover a{
+	color: #265CA6;
+}
+
+.forma{
+	margin: auto;
+	padding-top: 1px;
+	width: 85%;
+	min-height: 300px;
+	background-color: white;
+	margin-bottom: 15px;
+}
+
+/* ========== Позиционирование внутри вкладки ========== */
+.bd_minus{
+	position: absolute;
+	margin-left: -1000px;
+}
+.bd_plus{
+	position: absolute;
+	margin: auto;
+}
+.dp_minus{
+	position: absolute;
+	margin-left: -1000px;
+}
+.dp_plus{
+	position: absolute;
+	margin: auto;
+}
+.dt_minus{
+	position: absolute;
+	margin-left: -1000px;
+}
+.dt_plus{
+	position: absolute;
+	margin: auto;
+}
+
+/* ========== Стили внутри вкладок ========== */
+.button{
+	margin: 3px;
+	padding: 10px;
+	background-color: #2B70CA;
+	border: none;
+	color: white;
+}
+.button:hover{
+	background-color: #538ED0;
+}
+
+/* ========== Шрифт для шапки ========== */
+@font-face {
+font-family: "Impact"; 
+// адрес шрифта и тип 
+src: url("../fonts/ofont.ru_Impact.ttf") format("truetype"); 
+font-style: normal; 
+font-weight: normal; 
+} 
