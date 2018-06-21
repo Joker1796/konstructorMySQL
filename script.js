@@ -44,7 +44,6 @@
 			
 			document.getElementById('pods').className = 'podskazki';		//отобразить окно справки
 			$("#podskazki_text").html(text_podskazki("bd"));				//подсказка
-			
 		});
 
 
