@@ -1,4 +1,35 @@
 
+//========================= ПОДСКАЗКИ ========================//
+
+
+//========== текст подсказки ==========//
+	function text_podskazki(parametr){
+		switch(parametr){
+			case 'bd': return('<p><b>Синтаксис оператора CREATE DATABASE</b></p><hr><div class="vid_zap">CREATE DATABASE [IF NOT EXISTS] db_name [CHARACTER SET charset] [COLLATE collation];</div><p>	<b>db_name</b>- Имя, которое будет присвоено создаваемой базе данных.</p><p><b>IF NOT EXISTS</b>- Если не указать этот параметр, то при попытке создания базы данных с уже существующим именем, возникнет ошибка выполнения команды.</p><p><b>CHARACTER SET, COLLATE</b>- Используется для задания стандартной кодировки таблицы и порядка сортировки.</p><hr><div class="next"><button class="button"><a href="spravka/f2.html">подробнее</a></button></div>'); break;
+			case 'dt': return('<p><b>Синтаксис оператора CREATE TABLE:</b></p><hr><div class="vid_zap">CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name [(create_definition,...)]<br>[table_options] [select_statement]</div><p><b>tbl_name</b>- Задает имя таблицы, которая будет создана в текущей базе данных. </p><p><b>TEMPORARY</b>- Этот параметр используется для создания временной таблицы с именем tbl_name в течении только текущего сценария.</p><p><b>IF NOT EXISTS</b>- Если указан этот параметр и производится попытка создать таблицу с дублирующим именем, то таблица создана не будет и сообщение об ошибке не появиться.</p><p><b>create_definition</b>- Определяет внутреннюю структуру создаваемой таблицы.</p><hr><div class="next"><button class="button"><a href="spravka/f4.html">подробнее</a></button></div>'); break;
+			case 'dp': return('<p><b>Изменить свойства столбцов можно при помощи следующей конструкции:</b></p><div class="vid_zap">ALTER TABLE table_name CHANGE field_name_old field_name_new parametrs</div><p><b>table_name</b>- имя таблицы, в которой находится изменяемый столбец;</p><p><b>field_name_old</b>- имя столбца изменяемого столбца;</p><p><b>field_name_new</b>- новое имя изменяемого столбца;</p><p><b>parametrs</b>- новые параметры столбца.</p><hr><div class="next"><button class="button"><a href="spravka/f6_3.html">подробнее</a></button></div>'); break;
+			case '': return(''); break;
+			case '': return(''); break;
+			case '': return(''); break;
+			case '': return(''); break;
+			case '': return(''); break;
+			case '': return(''); break;
+			case '': return(''); break;
+			case '': return(''); break;
+		
+		
+		}
+	};
+
+
+//========== скрывает окно справки ==========//
+	$(document).ready(function(){
+		$("#close").on('click', function(){
+			document.getElementById('pods').className = 'podskazki_minus';
+		});
+	});
+
+
 //========================= ОТОБРАЖЕНИЕ ВКЛАДОК ========================//
 
 //========== Вкладка действий с БД ==========//
@@ -11,8 +42,8 @@
 			$("#vkl_dt_plus").attr("id", "#vkl_dt");
 			$("#vkl_dp_plus").attr("id", "#vkl_dp");
 			
-			document.getElementById('pods').className = 'podskazki';
-			$("#podskazki_text").text("xxxxxxx");
+			document.getElementById('pods').className = 'podskazki';		//отобразить окно справки
+			$("#podskazki_text").html(text_podskazki("bd"));				//подсказка
 			
 		});
 
@@ -26,6 +57,9 @@
 			$(this).attr("id", "vkl_dt_plus");
 			$("#vkl_bd_plus").attr("id", "#vkl_bd");
 			$("#vkl_dp_plus").attr("id", "#vkl_dp");
+			
+			document.getElementById('pods').className = 'podskazki';		//отобразить окно справки
+			$("#podskazki_text").html(text_podskazki("dt"));				//подсказка
 		});
 
 
@@ -38,6 +72,9 @@
 			$(this).attr("id", "vkl_dp_plus");
 			$("#vkl_bd_plus").attr("id", "#vkl_bd");
 			$("#vkl_dt_plus").attr("id", "#vkl_dt");
+			
+			document.getElementById('pods').className = 'podskazki';		//отобразить окно справки
+			$("#podskazki_text").html(text_podskazki("dp"));				//подсказка
 		});
 	});
 
