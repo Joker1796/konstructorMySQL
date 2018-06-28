@@ -9,15 +9,13 @@
 			case 'dt': return('<p><b>Синтаксис оператора CREATE TABLE:</b></p><hr><div class="vid_zap">CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name [(create_definition,...)]<br>[table_options] [select_statement]</div><p><b>tbl_name</b>- Задает имя таблицы, которая будет создана в текущей базе данных. </p><p><b>TEMPORARY</b>- Этот параметр используется для создания временной таблицы с именем tbl_name в течении только текущего сценария.</p><p><b>IF NOT EXISTS</b>- Если указан этот параметр и производится попытка создать таблицу с дублирующим именем, то таблица создана не будет и сообщение об ошибке не появиться.</p><p><b>create_definition</b>- Определяет внутреннюю структуру создаваемой таблицы.</p><hr><div class="next"><button class="button"><a href="spravka/f4.html">подробнее</a></button></div>'); break;
 			case 'dp': return('<p><b>Изменить свойства столбцов можно при помощи следующей конструкции:</b></p><div class="vid_zap">ALTER TABLE table_name CHANGE field_name_old field_name_new parametrs</div><p><b>table_name</b>- имя таблицы, в которой находится изменяемый столбец;</p><p><b>field_name_old</b>- имя столбца изменяемого столбца;</p><p><b>field_name_new</b>- новое имя изменяемого столбца;</p><p><b>parametrs</b>- новые параметры столбца.</p><hr><div class="next"><button class="button"><a href="spravka/f6_3.html">подробнее</a></button></div>'); break;
 			case 'bdd': return('<p>Для удаления базы данных используется оператор <b>DROP DATABASE</b>.</p><p><b>Синтаксис:</b></p><hr><div class="vid_zap">DROP DATABASE [IF EXISTS] db_name</div><p><b>db_name</b>- Задает имя базы данных, которую необходимо удалить.</p><p><b>IF EXISTS</b>- Если не указать этот параметр, то при попытке удаления не существующей базы данных, возникнет ошибка выполнения команды. Данный параметр доступен в MySQL 3.22 и более поздних версиях.</p><p>При выполнении команды <b>DROP DATABASE</b> удаляется как сама база данных, так и все таблицы, которые в ней находятся.</p><hr><div class="next"><button class="button"><a href="spravka/f3.html">подробнее</a></button></div>'); break;
+			case 'deltable': return('<p><b>Синтаксис оператора DROP TABLE</b></p><hr><div class="vid_zap">DROP TABLE [IF EXISTS] tbl_name [, tbl_name,...] [RESTRICT | CASCADE]</div><p>Этот оператор удаляет таблицу или таблицы из текущей базы данных.</p><p><b>tbl_name</b>- Имя удаляемой таблицы.</p><p><b>IF EXISTS</b>- Если указан этот параметр, то при попытке удаления несущестующей таблицы ошибки не возникнет. В противном случае возникнет ошибка выполнения команды. Данный параметр появился в MySQL начиная с версии 3.22.</p><p><b>RESTRICT</b> и <b>CASCADE</b>- Не несут никакой функциональности. Оставлены для упрощения переноса программы.</p><hr><div class="next"><button class="button"><a href="spravka/f5.html">подробнее</a></button></div>'); break;
+			case 'addpol': return('<p><b>Вставку нового столбца можно осуществить при помощи следующей конструкции:</b></p><hr><div class="vid_zap">ALTER TABLE table_name ADD field_name parametrs</div><p><b>table_name</b>- имя таблицы, в которой будет вставлен новый столбец;</p><p><b>field_name</b>- имя вставляемого столбца;</p><p><b>parametrs</b>- параметры, описывающие вставляемый столбец.</p><hr><div class="next"><button class="button"><a href="spravka/f6_2.html">подробнее</a></button></div>'); break;
+			case 'delpol': return('<p><b>Удаление столбца можно сделать при помощи следующей конструкции:</b></p><hr><div class="vid_zap">ALTER TABLE table_name DROP field_name</div><p><b>table_name</b>- имя таблицы, в которой будет удален столбец;</p><p><b>field_name</b>- имя удаляемого столбца.</p><div class="vid_zap"><p>$sql="ALTER TABLE search DROP id_num";mysql_query($sql);</p></div><hr><div class="next"><button class="button"><a href="spravka/f6_4.html">подробнее</a></button></div>'); break;
 			case '': return(''); break;
 			case '': return(''); break;
 			case '': return(''); break;
-			case '': return(''); break;
-			case '': return(''); break;
-			case '': return(''); break;
-			case '': return('<hr><div class="next"><button class="button"><a href="spravka/f6_3.html">подробнее</a></button></div>'); break;
-		
-		
+			case '': return('<hr><div class="next"><button class="button"><a href="spravka/f6_4.html">подробнее</a></button></div>'); break;		
 		}
 	};
 
@@ -86,7 +84,7 @@
 			$("#zap").val("CREATE DATABASE " + bdname + ";");
 			
 			document.getElementById('pods').className = 'podskazki';		//отобразить окно справки
-			$("#podskazki_text").html(text_podskazki("dt"));				//подсказка
+			$("#podskazki_text").html(text_podskazki("bd"));				//подсказка
 		});
 
 	
@@ -191,7 +189,8 @@
 		var table_name = $("#name_TABLE").val();								//хранит название таблицы
 		var table_zap1 = ("CREATE TABLE " + table_name); 						//хранит кусок запроса																				
 		return(table_zap1);														//возвращает кусок запроса
-		
+		document.getElementById('pods').className = 'podskazki';				//отобразить окно справки
+		$("#podskazki_text").html(text_podskazki("dt"));						//подсказка
 	};
 
 //========== Функция возвращает запрос удаления таблицы ==========//
@@ -212,6 +211,9 @@
 			blokirovka = 1;	
 			table_zap = (f_createTABLE() + " (" + f_addPOLE() + ");"); 			//собирает запрос																			
 			$("#zap").val(table_zap);											//выводит запрос
+			
+			document.getElementById('pods').className = 'podskazki';			//отобразить окно справки
+			$("#podskazki_text").html(text_podskazki("dt"));					//подсказка
 		});
 
 
@@ -219,7 +221,8 @@
 	
 		$("#delTABLE").on('click', function(){
 			$("#zap").val(f_delTABLE() + ";");									//выводит запрос удаления таблицы
-			
+			document.getElementById('pods').className = 'podskazki';			//отобразить окно справки
+			$("#podskazki_text").html(text_podskazki("deltable"));				//подсказка
 			
 		});
 
@@ -231,6 +234,9 @@
 				table_zap = (table_zap.slice(0, -2));								//удаляет из запроса -  ;)										
 				table_zap = (table_zap + ", " + f_addPOLE() + ");");				//собирает новый запрос с новым полем
 				$("#zap").val(table_zap);											//выводит запрос
+				
+				document.getElementById('pods').className = 'podskazki';			//отобразить окно справки
+				$("#podskazki_text").html(text_podskazki("addpol"));				//подсказка
 			}	
 		});
 		
@@ -243,6 +249,35 @@
 				table_zap = (table_zap.split(',')[0] + ");");						//удаляет все после запятой
 				$("#zap").val(table_zap);											//выводит запрос
 			}
+			
+		});
+	});
+	
+//======================= ДЕЙСТВИЯ С ПОЛЯМИ ===========================//
+
+//========== Функция обработки нажатия на кнопку "добавить поле" ==========//
+	$(document).ready(function(){
+		var table_name, pol_name;				
+			
+		function parametr_pol(){
+			table_name = $("#name_TABLE_pol").val();									//хранит название таблицы
+			pol_name = $("#name_POLE_pol").val();										//хранит название поля
+		}
+	
+		$("#createPOLE").on('click', function(){	
+			parametr_pol();
+			$("#zap").val("ALTER TABLE " + table_name + " ADD " + pol_name + ";");		//выводит запрос
+			
+			document.getElementById('pods').className = 'podskazki';					//отобразить окно справки
+			$("#podskazki_text").html(text_podskazki("addpol"));						//подсказка
+		});	
+		
+		$("#deletePOLE").on('click', function(){
+			parametr_pol();
+			$("#zap").val("ALTER TABLE " + table_name + " DROP " + pol_name + ";");		//выводит запрос удаления таблицы
+			
+			document.getElementById('pods').className = 'podskazki';					//отобразить окно справки
+			$("#podskazki_text").html(text_podskazki("delpol"));						//подсказка
 			
 		});
 	});

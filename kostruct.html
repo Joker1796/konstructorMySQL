@@ -49,17 +49,22 @@
 		
 			<!-- Действия с БД -->
 			<div class="bd_minus" id="bd">
-				<p>Название базы данных <input maxlength="25" size="20" value="name_bd" id="name_BD"></p>
+				<p>
+					Название базы данных <input maxlength="25" size="20" value="name_bd" id="name_BD"> 
+					<a title="Название, создаваемой или удаляемой нами, базы данных" id="vopros_nametbl" class="vopros" href="#">?</a>
+				</p>
 				<button class="button" id="createBD">Создать базу данных</button> 
 				<button class="button" id="deleteBD">Удалить базу данных</button>
 			</div>
 			
 			<!-- Действия с таблицами -->
 			<div class="dt_minus" id="dt">
-				<p>Название таблицы <input maxlength="25" size="20" value="name_table" id="name_TABLE"></p> 
+				<p>Название таблицы <input maxlength="25" size="20" value="name_table" id="name_TABLE">
+				<a title="Название, создаваемой или удаляемой нами, таблицы" id="vopros_nametbl" class="vopros" href="#">?</a></p> 
 				<table>
 					<tr>
-						<td>Название поля</td><td colspan="3"><input maxlength="25" size="15" value="name" id="name_POL"> </td>
+						<td>Название поля</td><td colspan="3"><input maxlength="25" size="15" value="name" id="name_POL"> 
+						<a title="Название поля которое будет вствленно в таблицу при создании" id="vopros_nametbl" class="vopros" href="#">?</a></td>
 					</tr>
 					<tr>
 						<td rowspan="4">Тип поля</td>
@@ -104,7 +109,8 @@
 							</select>
 						</td>
 						<td>
-							<input maxlength="20" size="1" value="20" id="quantity"> - максимум
+							<input maxlength="20" size="1" value="20" id="quantity"> 
+							<a title="Максимальное количество символов" id="vopros_nametbl" class="vopros" href="#">?</a>
 						</td>
 					</tr>
 					<tr>
@@ -134,9 +140,17 @@
 			
 			<!-- Действия с полями -->
 			<div class="dp_minus" id="dp">
-				<p>Название поля <input maxlength="25" size="20" value="name_pole" id="name_POLE"></p>
+				<p>
+					Название таблицы <input maxlength="25" size="20" value="name_table" id="name_TABLE_pol">
+					<a title="Название таблицы в которой будем менять поля" id="vopros_nametbl_pol" class="vopros" href="#">?</a>
+				</p>
+				<p>
+					Название поля <input maxlength="25" size="20" value="name_pole" id="name_POLE_pol"> 
+					<a title="Название поля которое будем создавать или удалять" id="vopros_nametbl" class="vopros" href="#">?</a>
+				</p>
+				
 				<button class="button" id="createPOLE">Добавить поле</button> 
-				<button class="button" id="deletePOLE">Удалить последнее поле поле</button>
+				<button class="button" id="deletePOLE">Удалить поле</button>
 			</div>
 			
 		</div>
@@ -150,7 +164,7 @@
 <!--================= ПОДВАЛ ===================-->
 	<footer>
 		<div class="foot">
-			Горлов Евгений Сергеевич 2017-2018<sup>©</sup>
+			ГПОУ ЯО Ростовский педагогический колледж  2017-2018 <sup>©</sup>
 		</div>	
 	</footer>
 

@@ -40,8 +40,10 @@ header{
 }
 .logo{
 	height: 45px;
-
-
+}
+.index_sql{
+	float: right;
+	width: 240px;
 }
 nav{
 	list-style: none;
@@ -115,11 +117,11 @@ button a{
 }
 .vid_zap{
 	margin: 15px;
-	border: 2px dashed #2B70CA;
 	background-color: #F2F7FD;
 	padding: 8px;
 	padding-left: 20px;
 	color: black;
+	border: 2px dashed #2B70CA;
 	font-family: Courier New;
 }
 .hr_zagolovok{
@@ -260,6 +262,31 @@ p, table{
 }
 #vkl_dp_plus a{
 	color: #265CA6;
+}
+
+.vopros{
+	position: relative;
+	background-color:  #F2F7FD;
+	margin: 5px;
+	padding: 5px;
+	padding-bottom: 1px;
+	padding-top: 0px;
+	padding-right: 6px;
+	border: 1px solid #265CA6;
+	border-radius: 10px;
+}
+.vopros:hover:after{
+    background-color: #F2F7FD;
+	border: 1px solid #2B70CA;
+	font-family: Courier New;
+    bottom: 26px;
+    color: #265CA6;
+    content: attr(title);
+    left: 20%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: 250px;
 }
 
 .forma{
