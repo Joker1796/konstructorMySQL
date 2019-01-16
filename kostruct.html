@@ -9,162 +9,56 @@
 		<link rel="stylesheet" href="style.css">
 		<script src="jquery-3.2.1.min.js"></script>
 		<script src="script.js"></script>
-		
-		
 	</head>
-	
 <body>
 
 <!--================= ШАПКА ===================-->
 	<header>
 		<div class="hed">
-			<nav>
-				<ul>
-					<li><a href="index.html">Что это?</a>
-					<li><a href="kostruct.html">Конструктор</a>
-					<li><a href="faq.html">Справочник</a>
-					<li><a href="index.html"><img class="logo" src="logo.png"></a>
-				</ul>
-			<nav>	
+			<div class="men1"><a href="index.html"><img class="logo" src="logo.png"></a>	</div>
+			<div class="men"><a href="index.html">Что это?</a></div>
+			<div class="men"><a href="kostruct.html">Занятия</a></div>
+			<div class="men"><a href="faq.html">Справочник</a></div>
+			
 		</div>
 	</header>
 	
 <!--================= КОНТЕНТ ===================-->
-<div class="hr_zagolovok">Выберите какой запрос вы хотите создать</div>
+<div class="hr_zagolovok">Доступные занятия:</div>
 
 	<div id="pods" class="podskazki_minus">
 		Короткая справка <a id="close" href="#">X</a>
 		<div id="podskazki_text"></div>
 	</div>
-	
-	<div class="content">
-		
-			<ul class="vkladki">							<!-- Вкладки -->
-				<li id="vkl_bd"><a href="#">Действия с БД</a>				
-				<li id="vkl_dt"><a href="#">Действия с таблицами</a>
-				<li id="vkl_dp"><a href="#">Действия с полями</a>
-			</ul>
-<!--================= КОНСТРУКТОР ===================-->		
-		<div class="forma">
-		
-			<!-- Действия с БД -->
-			<div class="bd_minus" id="bd">
-				<p>
-					Название базы данных <input maxlength="25" size="20" value="name_bd" id="name_BD"> 
-					<a title="Название, создаваемой или удаляемой нами, базы данных" id="vopros_nametbl" class="vopros" href="#">?</a>
-				</p>
-				<button class="button" id="createBD">Создать базу данных</button> 
-				<button class="button" id="deleteBD">Удалить базу данных</button>
-			</div>
-			
-			<!-- Действия с таблицами -->
-			<div class="dt_minus" id="dt">
-				<p>Название таблицы <input maxlength="25" size="20" value="name_table" id="name_TABLE">
-				<a title="Название, создаваемой или удаляемой нами, таблицы" id="vopros_nametbl" class="vopros" href="#">?</a></p> 
-				<table>
-					<tr>
-						<td>Название поля</td><td colspan="3"><input maxlength="25" size="15" value="name" id="name_POL"> 
-						<a title="Название поля которое будет вствленно в таблицу при создании" id="vopros_nametbl" class="vopros" href="#">?</a></td>
-					</tr>
-					<tr>
-						<td rowspan="4">Тип поля</td>
-						<td>
-							<input name="tip_pole" type="radio" value="true1" id="int_tip">
-						</td>
-						<td colspan="2">
-							<select id="tip_1">
-								<option>Целые числа</option>
-								<option>TINYINT		Может хранить числа от -128 до 127</option>
-								<option>SMALLINT	Диапазон от -32 768 до 32 767</option>
-								<option>MEDIUMINT	Диапазон от -8 388 608 до 8 388 607</option>
-								<option>INT			Диапазон от -2 147 483 648 до 2 147 483 647</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<input name="tip_pole" type="radio" value="true2" id="float_tip">
-						</td>
-						<td  colspan="2">
-							<select id="tip_2">
-								<option>Дробные числа</option>
-								<option>UNSIGNED 	задает беззнаковые числа</option>
-								<option>FLOAT 		Число с плавающей точкой небольшой точности</option>
-								<option>DOUBLE 		Число с плавающей точкой двойной точности</option>
-								<option>DECIMAL 	Дробное число, хранящееся в виде строки</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<input checked name="tip_pole" type="radio" value="true3" id="text_tip">
-						</td>
-						<td>
-							<select id="tip_3">
-								<option>Строки</option>
-								<option>VARCHAR		Может хранить не более 255 символов</option>
-								<option>TINYTEXT	Может хранить не более 255 символов</option>
-								<option>TEXT		Может хранить не более 65 535 символов</option>
-								<option>MEDIUMTEXT	Может хранить не более 16 777 215 символов</option>
-							</select>
-						</td>
-						<td>
-							<input maxlength="20" size="1" value="20" id="quantity"> 
-							<a title="Максимальное количество символов" id="vopros_nametbl" class="vopros" href="#">?</a>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<input name="tip_pole" type="radio" value="true4" id="date_tip">
-						</td>
-						<td colspan="2">
-							<select id="tip_4">
-								<option>Дата и время</option>
-								<option>DATE	Дата в формате ГГГГ-ММ-ДД</option>
-								<option>TIME	Время в формате ЧЧ:ММ:СС</option>
-								<option>DATETIME	Дата и время в формате ГГГГ-ММ-ДД ЧЧ:ММ:СС</option>
-							</select>
-						</td>
-					</tr>
-				</table>
-				<br>
-				<button class="button" id="createTABLE">Создать таблицу</button> 
-				<button class="button" id="delTABLE">Удалить таблицу</button>
-				<hr>
-				<button class="button" id="addPOLE">Добавить поле</button>
-				<button class="button" id="deletePOLE_TABLE">Удалить добавленные поля</button>
-				
-				
-				
-			</div>
-			
-			<!-- Действия с полями -->
-			<div class="dp_minus" id="dp">
-				<p>
-					Название таблицы <input maxlength="25" size="20" value="name_table" id="name_TABLE_pol">
-					<a title="Название таблицы в которой будем менять поля" id="vopros_nametbl_pol" class="vopros" href="#">?</a>
-				</p>
-				<p>
-					Название поля <input maxlength="25" size="20" value="name_pole" id="name_POLE_pol"> 
-					<a title="Название поля которое будем создавать или удалять" id="vopros_nametbl" class="vopros" href="#">?</a>
-				</p>
-				
-				<button class="button" id="createPOLE">Добавить поле</button> 
-				<button class="button" id="deletePOLE">Удалить поле</button>
-			</div>
-			
+<div class="lessContent">	
+	<div class="container">
+		<div class="less less1">
+			<p class="lessName">Урок 1</p>
+			<p>В этом уроке мы изучим бла бла бла бла бла бла бла бла бла бла</p>
 		</div>
-		
-		<div class="zapros">
-			Готовый запрос:<br>
-			<textarea type="text" value="ntrcn" rows="5" cols="50" size="57" id="zap"></textarea>
+		<div class="less less2">
+			<p class="lessName">Урок 2</p>
+			<p>В этом уроке мы изучим бла бла бла бла бла бла бла бла бла бла</p>
+		</div>
+		<div class="less less3">
+			<p class="lessName">Урок 3</p>
+			<p>В этом уроке мы изучим бла бла бла бла бла бла бла бла бла бла</p>
+		</div>
+		<div class="less less4">
+			<p class="lessName">Урок 4</p>
+			<p>В этом уроке мы изучим бла бла бла бла бла бла бла бла бла бла</p>
+		</div>
+		<div class="less less5">
+			<p class="lessName">Урок 5</p>
+			<p>В этом уроке мы изучим бла бла бла бла бла бла бла бла бла бла</p>
 		</div>
 	</div>
+</div>
 	
 <!--================= ПОДВАЛ ===================-->
 	<footer>
 		<div class="foot">
-			ГПОУ ЯО Ростовский педагогический колледж  2017-2018 <sup>©</sup>
+			ГПОУ ЯО Ростовский педагогический колледж  2017-2019 <sup>©</sup>
 		</div>	
 	</footer>
 

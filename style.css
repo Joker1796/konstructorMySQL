@@ -12,9 +12,9 @@ h2{
 
 /* ========== Стиль подвала ========== */
 footer{
-	border-top: 4px solid #2B70CA;
 	text-align: center;
 	padding: 30;
+	background-color: #E9E9E7;
 }
 .foot{
 	width: 65%;
@@ -23,71 +23,98 @@ footer{
 	padding-top: 10px;
 	font-family: Arial;
 	font-size: 14px;
+	background-color: #E9E9E7;
 }
 
 /* ========== Стиль шапки ========== */
 header{
 	font-family: "Impact";
-	margin: 0px;
-	padding: 0px;
+	margin: 0em;
+	padding: 0.5em;
 	background-color: #2B70CA;
+	box-shadow: 0 0 2em rgba(0,0,0,0.5);
 }
 .hed{
-	width: 65%;
-	margin: auto;
-	padding-top: 1px;
-	padding-bottom: 1px;
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 7em;
 }
+.men{
+	width: auto;
+	height: 1.3em;
+	margin: 0;
+	padding: 1.2em;
+	background-color: #2B70CA;
+}
+.men a{
+	text-decoration: none; 
+	color: white;
+	font-size: 1.5em;
+}
+.men:hover{
+	background-color: #F8F8F7;
+}
+.men:hover a{
+	color: #265CA6;
+}
+
 .logo{
-	height: 45px;
+	height: 3.5em;
 }
 .index_sql{
 	float: right;
 	width: 240px;
 }
-nav{
-	list-style: none;
-	margin: 0px;
-	padding-top: 0px;
-	padding-bottom: 0px;
-}
-nav li{
-	display: inline;
-	padding: 15px;
-	border-right: 2px solid #2B70CA;
-}
-nav li:last-child{
-	padding: 0px;
-	position: absolute;
-	border-right: none;
-	top: 6px;
-	left: 75%;
-}
-nav li:last-child:hover{ 
-	background-color: #2B70CA;
-}
-nav li:first-child{
-	border-left: 2px solid #2B70CA;
-}
 
-nav li:hover{
+/* ========== Стиль уроков ========== */
+.lessContent{
+	background-color: #F8F8F7;
+	display: flex;
+	justify-content: center;
+	padding-top: 1.5em;
+}
+.container{
+	display: flex;
+	flex-wrap: wrap;
+	width: 70%;
+	margin:auto;
+	justify-content: center;
+	padding-bottom: 2em;
+}
+.less{
+	width: 13em;
+	height: 10em;
+	box-shadow: 0 0.5em 1em rgba(0,0,0,0.2);
 	background-color: white;
+	margin: 0.8em;
 }
-nav li:hover a{
-	color: #265CA6;
+.less:hover{
+	opacity: 0.7;
 }
-nav a{
-	text-decoration: none; 
-	color: white;
-	font-size: 24px;
+.lessName{
+	font-size: 1.2em;
+	padding: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-top: 0.5em;
+	font-weight: bold;
+	
+}
+.less p{
+	margin-left: auto;
+    margin-right: auto;
+	text-align: center;
+	width: 10em
 }
 /* ========== Стиль контента ========== */
 .content{
 	margin: auto;
-	padding: 30px;
+	padding: 0;
 	width: 80%;
 	min-height: 400px;
 }
+
 
 button a{
 	color: white;
@@ -125,14 +152,12 @@ button a{
 	font-family: Courier New;
 }
 .hr_zagolovok{
-	border-bottom: 4px solid #2B70CA;
-	padding-bottom: 5px;
-	padding-top: 40px;
-	font-size: 40px;
-	padding-left: 25px;
-	padding-right: 25px;
+	padding-bottom: 0.5em;
+	padding-top: 0.6em;
+	font-size: 3em;
 	text-align: center;
 	color: #2B70CA;
+	text-shadow: 0 0.05em 0.1em rgba(0,0,0,0.25);
 }
 
 .strelka{
@@ -326,14 +351,15 @@ p, table{
 
 /* ========== Стили внутри вкладок ========== */
 .button{
-	margin: 3px;
-	padding: 10px;
+	margin: 0.7em;
+	padding: 0.7em;
+	font-size: 1.1em;
 	background-color: #2B70CA;
 	border: none;
 	color: white;
 }
 .button:hover{
-	background-color: #538ED0;
+	opacity: 0.8;
 }
 
 /* ========== Шрифт для шапки ========== */
