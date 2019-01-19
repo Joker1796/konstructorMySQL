@@ -1,6 +1,7 @@
 
 /* ========== Общие стили страниц ========== */
 body{
+	min-width: 400px;
 	margin: 0px;
 	padding: 0px;
 	font-family: "Franklin Gothic Medium";
@@ -22,7 +23,7 @@ footer{
 	padding: 20px;
 	padding-top: 10px;
 	font-family: Arial;
-	font-size: 14px;
+	font-size: 1em;
 	background-color: #E9E9E7;
 }
 
@@ -31,6 +32,7 @@ header{
 	font-family: "Impact";
 	margin: 0em;
 	padding: 0.5em;
+	padding-top: 0;
 	background-color: #2B70CA;
 	box-shadow: 0 0 2em rgba(0,0,0,0.5);
 }
@@ -41,29 +43,36 @@ header{
 }
 .men{
 	width: auto;
-	height: 1.3em;
-	margin: 0;
-	padding: 1.2em;
+	height: 1.2em;
 	background-color: #2B70CA;
 }
 .men a{
-	text-decoration: none; 
+	display: block;
+    height: 100%;
 	color: white;
+	padding: 1em;
 	font-size: 1.5em;
-}
-.men:hover{
-	background-color: #F8F8F7;
+	text-decoration: none;
+	
 }
 .men:hover a{
 	color: #265CA6;
+	background-color: #F8F8F7;
+	box-shadow: inset 0 0 0.1em rgba(1,1,1,1);
+}
+.men1{
+	margin-top: 0.1em;
 }
 
 .logo{
 	height: 3.5em;
 }
+.logo:hover{
+	opacity: 0.9;
+}
 .index_sql{
 	float: right;
-	width: 240px;
+	width: 15em;
 }
 
 /* ========== Стиль уроков ========== */
@@ -83,25 +92,26 @@ header{
 }
 .less{
 	width: 13em;
-	height: 10em;
+	height: 13em;
 	box-shadow: 0 0.5em 1em rgba(0,0,0,0.2);
 	background-color: white;
 	margin: 0.8em;
+	display: block;
+	color: black;
+	text-decoration: none;
 }
 .less:hover{
 	opacity: 0.7;
 }
 .lessName{
+	color: black;
 	font-size: 1.2em;
-	padding: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	margin-top: 0.5em;
+	padding: 0;
+	margin: 0;
 	font-weight: bold;
-	
 }
 .less p{
+	padding-top: 0.8em;
 	margin-left: auto;
     margin-right: auto;
 	text-align: center;
@@ -111,17 +121,7 @@ header{
 .content{
 	margin: auto;
 	padding: 0;
-	width: 80%;
-	min-height: 400px;
-}
-
-
-button a{
-	color: white;
-}
-.next{
-	margin: auto;
-	text-align: center;
+	width: 70%;
 }
 
 .sintaksis{
@@ -349,17 +349,122 @@ p, table{
 	margin: auto;
 }
 
-/* ========== Стили внутри вкладок ========== */
+/* ========== Стили кнопок ========== */
+
+.next{
+	margin: auto;
+	text-align: center;
+	margin-bottom: 2em;
+}
 .button{
-	margin: 0.7em;
-	padding: 0.7em;
+	width: 14em;
+	height: 3em;
 	font-size: 1.1em;
 	background-color: #2B70CA;
 	border: none;
+	padding: 0;
+}
+.button a{
+	display: block;
 	color: white;
+	padding-top: 0.9em;
+    height: 70%;
+	width:100%;
 }
 .button:hover{
 	opacity: 0.8;
+}
+
+/* ========== Адаптив ========== */
+@media screen and (min-width:1241px) and (max-width:9999px) {
+	.content{
+		width: 80%;
+	}
+}
+@media screen and (min-width:1025px) and (max-width:1240px) {
+	.content{
+		width: 80%;
+	}
+	.sintaksis{
+		width: 60%;
+	}
+}
+@media screen and (min-width:886px) and (max-width:1024px) {
+	.content{
+		width: 80%;
+	}
+	.sintaksis{
+		width: 70%;
+	}
+	body{
+		font-size: 0.9em;
+	}
+}
+
+@media screen and (min-width:661px) and (max-width:885px) {
+	.content{
+		width: 80%;
+	}
+	.sintaksis{
+		width: 80%;
+	}
+	body{
+		font-size: 0.8em;
+	}
+}
+@media screen and (min-width:536px) and (max-width:660px) {
+	.container{
+		width:100%;
+	}
+	.content{
+		width: 80%;
+	}
+	.sintaksis{
+		width: 90%;
+	}
+	body{
+		font-size: 0.7em;
+	}
+	.hed{
+	margin-left: 5em;
+	}
+}
+@media screen and (min-width:472px) and (max-width:535px) {
+	.lessContent{
+	width: 100%;
+	}
+	.container{
+		width:100%;
+	}
+	.content{
+		width: 80%;
+	}
+	.sintaksis{
+		width: 90%;
+	}
+	body{
+		font-size: 0.6em;
+	}
+	.hed{
+	margin-left: 4em;
+	}
+}
+@media screen and (min-width:400px) and (max-width:471px) {
+	.container{
+		width:100%;
+	}
+	.content{
+		width: 80%;
+	}
+	.sintaksis{
+		width: 100%;
+	}
+	body{
+		font-size: 0.6em;
+	}
+	.hed{
+	margin-left: 3em;
+	}
 }
 
 /* ========== Шрифт для шапки ========== */
