@@ -13,9 +13,12 @@ h2{
 
 /* ========== Стиль подвала ========== */
 footer{
+	position:fixed;
+    bottom: 0;
+	width: 100%;
 	text-align: center;
-	padding: 30;
-	background-color: #E9E9E7;
+	padding: 1em;
+	background-color: #E5EBF0;
 }
 .foot{
 	width: 65%;
@@ -24,7 +27,7 @@ footer{
 	padding-top: 10px;
 	font-family: Arial;
 	font-size: 1em;
-	background-color: #E9E9E7;
+	background-color: #E5EBF0;
 }
 
 /* ========== Стиль шапки ========== */
@@ -81,6 +84,7 @@ header{
 	display: flex;
 	justify-content: center;
 	padding-top: 1.5em;
+	padding-bottom: 5em;
 }
 .container{
 	display: flex;
@@ -102,6 +106,15 @@ header{
 }
 .less:hover{
 	opacity: 0.7;
+	transition-duration: 0.5s;
+}
+.less:active{
+	background-color: #F4F5F6;
+	transform: translate(0.2em, 0.2em);
+	box-shadow: 0 0.5em 1em rgba(0,0,0,0.1);
+}
+.less_activ{
+	background-color: #F4F5F6;
 }
 .lessName{
 	color: black;
@@ -122,21 +135,28 @@ header{
 	padding-bottom: 0.8em;
 	font-size: 1em;
 }
-#less1_code_php{
-	
+#less1_button_phpcode{
+	margin: auto;
+	margin-left: 2em;
 }
 .disguise_block{
 	width: 70%;
 	margin: auto;
+	padding-bottom: 6em;
 }
 .generator{
-	
+	min-width: 20em;
+	margin:auto;
+	background-color: white;
+	border: 0.02em solid #2B70CA;
+	padding: 1em;
 }
 /* ========== Стиль контента ========== */
 .content{
 	margin: auto;
 	padding: 0;
 	width: 70%;
+	padding-bottom: 6em;
 }
 
 .sintaksis{
@@ -180,8 +200,20 @@ header{
 	float: right;
 	position: fixed; /* Фиксированное положение */
     right: 10px; 
-    top: 85%; 
+    top: 75%; 
     padding: 10px;
+}
+#toTop {
+	text-align:center;
+	padding:5px;
+	position:fixed;
+	bottom:10px; /* отступ кнопки от нижнего края страницы*/
+	right:10px;
+	cursor:pointer;
+	display:none;
+	color:#333;
+	font-family:verdana;
+	font-size:11px;
 }
 #strelka_block{
 	position: absolute;

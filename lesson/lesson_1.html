@@ -17,20 +17,20 @@
 <body>
 
 <!--================= ШАПКА ===================-->
-	<header>
+	<header id="header">
 		<div class="hed inner_hed">
 		</div>
 	</header>
 	
 <!--================= КОНТЕНТ ===================-->
-<div class="hr_zagolovok">Урок 1. Введение в MySQL</div>
+<div id="zagolovok" class="hr_zagolovok">Урок 1. Введение в MySQL</div>
 
 	<div id="pods" class="podskazki_minus">
 		Короткая справка <a id="close" href="#">X</a>
 		<div id="podskazki_text"></div>
 	</div>
 	
-<div class="lessContent">
+<div id="content" class="lessContent">
 	<div class="container">
 		
 		<div>
@@ -121,35 +121,36 @@
 			Через некоторое время этот файл нам пригодится. Имя хоста <b>localhost</b> будет работать до 
 			тех пор, пока вы используете базу данных MySQL на своей локальной системе.</p>
 			<img id="less1_code_php" src="../img/less1_img5.jpg">
+	
+		<div class="container">
 			<div class="generator">
 				<p>
-					$db_hostname <input maxlength="25" size="20" value="localhost" id="name_BD"> 
+					$db_hostname <input maxlength="25" size="20" value="localhost" id="less1_hostname"> 
 					<a title="Сдесь вы можете ввести свой адрес хоста, если он отличается от localhost, по умолчанию." id="vopros_nametbl" class="vopros" href="#">?</a>
 				</p>
 				<p>
-					$db_database <input maxlength="25" size="20" value="test" id="name_BD"> 
+					$db_database <input maxlength="25" size="20" value="test" id="less1_database"> 
 					<a title="Сдесь необходимо ввести название базы данных к которой необходимо подключиться." id="vopros_nametbl" class="vopros" href="#">?</a>
 				</p>
 				<p>
-					$db_username <input maxlength="25" size="20" value="user" id="name_BD"> 
+					$db_username <input maxlength="25" size="20" value="user" id="less1_username"> 
 					<a title="Сдесь необходимо ввести имя пользователя от имени которго необходимо подключится к базе данных." id="vopros_nametbl" class="vopros" href="#">?</a>
 				</p>
 				<p>
-					$db_password <input maxlength="25" size="20" value="password" id="name_BD"> 
+					$db_password <input maxlength="25" size="20" value="password" id="less1_password"> 
 					<a title="Сдесь необходимо ввести пароль для входа в базу данных." id="vopros_nametbl" class="vopros" href="#">?</a>
 				</p>
-				<button class="button" id="less1_button_phpcode">Создать код PHP</button>
+				<button class="button" id="less1_button_phpcode"><a>Создать код PHP</a></button>
 			</div>
-			<div id="less1_polezapros"> </div>
-		
+			<div class="generator vid_zap" id="less1_polezapros">Нажмите кнопку: "Создать код PHP"</div>
+		</div>
 	</div>
-	
 <!--================= ПОДВАЛ ===================-->
-	<footer>
+	<footer id="footer">
 		<div class="foot">
 		</div>	
 	</footer>
-
+<div id="toTop"><img class="strelka" src="../up.png"></div >
 </body>
 </html>
 <!---->
