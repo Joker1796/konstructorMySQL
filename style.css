@@ -68,7 +68,7 @@ header{
 	height: 3.5em;
 }
 .logo:hover{
-	opacity: 0.9;
+	opacity: 0.8;
 }
 .index_sql{
 	float: right;
@@ -116,6 +116,21 @@ header{
     margin-right: auto;
 	text-align: center;
 	width: 10em
+}
+.less1{
+	height: auto;
+	padding-bottom: 0.8em;
+	font-size: 1em;
+}
+#less1_code_php{
+	
+}
+.disguise_block{
+	width: 70%;
+	margin: auto;
+}
+.generator{
+	
 }
 /* ========== Стиль контента ========== */
 .content{
