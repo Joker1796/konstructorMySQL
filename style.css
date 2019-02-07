@@ -79,6 +79,14 @@ header{
 }
 
 /* ========== Стиль уроков ========== */
+.flex_box{
+	display: flex;
+}
+.flex_box p{
+	margin: 0.3em;
+	padding: 0.3em;
+	display: block;
+}
 .lessContent{
 	background-color: #F8F8F7;
 	display: flex;
@@ -105,7 +113,7 @@ header{
 	text-decoration: none;
 }
 .less:hover{
-	opacity: 0.7;
+	opacity: 0.6;
 	transition-duration: 0.5s;
 }
 .less:active{
@@ -185,6 +193,12 @@ header{
 	color: black;
 	border: 2px dashed #2B70CA;
 	font-family: Courier New;
+}
+.vid_zap_short{
+	width: 5em;
+	margin: 0.3em;
+	padding: 0.3em;
+	display: block;
 }
 .hr_zagolovok{
 	padding-bottom: 0.5em;
@@ -285,57 +299,6 @@ p, table{
 	font-size: 12px;
 }
 
-/* ========== Стили вкладок ========== */
-.vkladki{
-	list-style: none;
-	margin: 0px;
-	padding-top: 0px;
-	padding-bottom: 0px;
-}
-.vkladki li{
-	display: inline;
-	padding: 10px;
-	background-color: #2B70CA;
-	border-right: 2px solid #2B70CA;
-	border-top: 2px solid #2B70CA;
-	border-bottom: 2px solid #2B70CA;
-}
-.vkladki li:first-child{
-	border-left: 2px solid #2B70CA;
-}
-.vkladki a{
-	text-decoration: none; 
-	color: white;
-	font-size: 18px;
-}
-.vkladki li:hover{
-	background-color: white;
-}
-.vkladki li:hover a{
-	color: #265CA6;
-}
-#vkl_bd_plus {
-	background-color: white;
-	border-bottom: none;
-}
-#vkl_bd_plus a{
-	color: #265CA6;
-}
-#vkl_dt_plus {
-	background-color: white;
-	border-bottom: none;
-}
-#vkl_dt_plus a{
-	color: #265CA6;
-}
-#vkl_dp_plus {
-	background-color: white;
-	border-bottom: none;
-}
-#vkl_dp_plus a{
-	color: #265CA6;
-}
-
 .vopros{
 	position: relative;
 	background-color:  #F2F7FD;
@@ -368,32 +331,6 @@ p, table{
 	min-height: 300px;
 	background-color: white;
 	margin-bottom: 15px;
-}
-/* ========== Позиционирование внутри вкладки ========== */
-.bd_minus{
-	position: absolute;
-	margin-left: -1000px;
-}
-.bd_plus{
-	position: absolute;
-	margin: auto;
-}
-
-.dp_minus{
-	position: absolute;
-	margin-left: -1000px;
-}
-.dp_plus{
-	position: absolute;
-	margin: auto;
-}
-.dt_minus{
-	position: absolute;
-	margin-left: -1000px;
-}
-.dt_plus{
-	position: absolute;
-	margin: auto;
 }
 
 /* ========== Стили кнопок ========== */

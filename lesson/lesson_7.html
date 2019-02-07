@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+		<meta charset="UTF-8">
+		<title>Конструктор запросов</title>
+		<link rel="stylesheet" href="../style.css">
+		<script src="../jquery-3.2.1.min.js"></script>
+		<script src="../script_heder_footer.js"></script>
+		<script src="../script.js"></script>
+		
+		
+	</head>
+	
+<body>
+
+<!--================= ШАПКА ===================-->
+	<header id="header">
+		<div class="hed inner_hed">
+		</div>
+	</header>
+	
+<!--================= КОНТЕНТ ===================-->
+<div id="zagolovok" class="hr_zagolovok">Урок 7. PHP My Admin</div>
+
+	<div id="pods" class="podskazki_minus">
+		Короткая справка <a id="close" href="#">X</a>
+		<div id="podskazki_text"></div>
+	</div>
+	
+<div id="content" class="lessContent">
+	<div class="container">
+		
+		<div>
+			<h2>Общая информация</h2>
+			<p>phpMyAdmin - это приложение написанное на PHP и обеспечивающее полноценную, в том числе удаленную, 
+			работу с базами данных MySQL через браузер. Так как phpMyAdmin позволяет во многих случаях обойтись 
+			без непосредственного ввода команд SQL, то работа с базами данных становится вполне посильной задачей 
+			даже для человека весьма поверхностно знакомого с MySQL.</p>
+			<p>Активное использование MySQL в веб-программировании обусловило его актуальность, а интуитивно 
+			понятный интерфейс в совокупности с широкой функциональностью и поддержкой более 60 языков (в т.ч. 
+			и русского) обеспечило ему популярность среди веб-разработчиков.</p>
+			<p>В связи с поддержкой инициативы GoPHP5, для работы с phpMyAdmin 3.x.x требуются предустановленные 
+			MySQL 5 и PHP 5.2. Для использования более старых версий MySQL и PHP, разработчики до сих поддерживают 
+			2.x.x ветку phpMyAdmin.</p>
+			
+			<h2></h2>
+		</div>
+			
+			<div class="less less1" id="less1_cmd_button"><p class="lessName">Создание и удаление БД</p></div>
+			<div class="less less1" id="less1_myadmin_button"><p class="lessName">Создание и удаление таблиц</p></div>
+			<div class="less less1" id="less1_php_button"><p class="lessName">Заполнение таблиц</p></div>
+	</div>	
+</div>
+		<div class="disguise_block" id="less1_cmd" hidden="true">
+			<h2>Создание БД</h2>
+			<p>Для создания базы данных в phpMyAdmin необходимо всего навсего заполнить нужные поля во вкладке "Базы данных":</p>
+			<img src="../img/less7_img1.jpg">
+			<img src="../img/less7_img2.jpg">
+			<h2>Удаление БД</h2>
+			<p>Для удаления базы данных в phpMyAdmin, ставим галочку и жмем на иконку, все просто:</p>
+			<img src="../img/less7_img3.jpg">
+		</div>
+		<div class="disguise_block" id="less1_myadmin" hidden="true">
+			<h2>Создание таблиц</h2>
+			<p>Для того что бы создать таблицу необходимо в списке баз данных выбрать необходимую, и открыть вкладку "Инструменты":</p>
+			<img src="../img/less7_img4.jpg">
+		</div>
+		<div class="disguise_block" id="less1_php" hidden="true">
+			<h2>Заполнение табицы</h2>
+			<img src="../img/less7_img5.jpg">
+		</div>
+	</div>
+<!--================= ПОДВАЛ ===================-->
+	<footer id="footer">
+		<div class="foot">
+		</div>	
+	</footer>
+<div id="toTop"><img class="strelka" src="../up.png"></div >
+</body>
+</html>
+<!---->

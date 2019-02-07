@@ -57,3 +57,16 @@
 			
 		});
 	});
+
+//========== УРОК 2 | PHP | Создание и Удаление БД==========//
+	$(document).ready(function(){
+		$("#less2_createBD").on('click', function(){
+			var name_BD = $("#name_BD").val();
+			$("#less2_polezapros").html('< ?php //без пробела <br> require_once "login.php"; <br> $db_server = mysql_connect($db_hostname, $db_username, $db_password); <br>if (!$db_server) die("Невозможно подключиться к MySQL: " . mysql_error()); <br>mysql_select_db($db_database) <br>or die("Невозможно выбрать базу данных: " . mysql_error()); <br>$query = "CREATE DATABASE ' + name_BD + '; <br>$result = mysql_query($query);<br>if (!$result) die ("Сбой при доступе к базе данных: " . mysql_error());<br>?> ');	
+		});
+		
+		$("#less2_deleteBD").on('click', function(){
+			var name_BD = $("#name_BD").val();
+			$("#less2_polezapros").html('< ?php //без пробела <br> require_once "login.php"; <br> $db_server = mysql_connect($db_hostname, $db_username, $db_password); <br>if (!$db_server) die("Невозможно подключиться к MySQL: " . mysql_error()); <br>mysql_select_db($db_database) <br>or die("Невозможно выбрать базу данных: " . mysql_error()); <br>$query = "DROP DATABASE ' + name_BD + ';<br>?> ');	
+		});
+	});
