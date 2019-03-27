@@ -7,11 +7,14 @@
 			$("#less1_myadmin").hide("slow");
 			$("#less1_php").hide("slow");
 			
+			document.getElementById('content').className = 'lessContent lcem';
+			
 			document.getElementById('less1_cmd_button').className = 'less less1 less_activ';
 			document.getElementById('less1_myadmin_button').className = 'less less1';
 			document.getElementById('less1_php_button').className = 'less less1';
         } else {
             $("#less1_cmd").hide("slow");
+			document.getElementById('content').className = 'lessContent';
         }
 		});
 		
@@ -22,11 +25,14 @@
 			$("#less1_cmd").hide("slow");
 			$("#less1_php").hide("slow");
 			
+			document.getElementById('content').className = 'lessContent lcem';
+			
 			document.getElementById('less1_cmd_button').className = 'less less1';
 			document.getElementById('less1_myadmin_button').className = 'less less1 less_activ';
 			document.getElementById('less1_php_button').className = 'less less1';
         } else {
             $("#less1_myadmin").hide("slow");
+			document.getElementById('content').className = 'lessContent';
         }
 		});
 		
@@ -37,11 +43,14 @@
 			$("#less1_myadmin").hide("slow");
 			 $("#less1_cmd").hide("slow");
 			 
+			 document.getElementById('content').className = 'lessContent lcem';
+			 
 			document.getElementById('less1_cmd_button').className = 'less less1';
 			document.getElementById('less1_myadmin_button').className = 'less less1';
 			document.getElementById('less1_php_button').className = 'less less1 less_activ';
         } else {
             $("#less1_php").hide("slow");
+			document.getElementById('content').className = 'lessContent';
         }
 		});
 	});

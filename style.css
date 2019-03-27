@@ -10,7 +10,12 @@ h2{
 	text-align: left;
 	margin-left: 40px;
 }
-
+.imga{
+	width: 100%;
+}
+.left{
+	float: left;
+}
 /* ========== Стиль подвала ========== */
 footer{
 	position:fixed;
@@ -23,8 +28,8 @@ footer{
 .foot{
 	width: 65%;
 	margin: auto;
-	padding: 20px;
-	padding-top: 10px;
+	padding: 0.5em;
+	padding-top: 0.5em;
 	font-family: Arial;
 	font-size: 1em;
 	background-color: #E5EBF0;
@@ -94,13 +99,18 @@ header{
 	padding-top: 1.5em;
 	padding-bottom: 5em;
 }
+.lcem{
+	padding-bottom: 0em;
+}
+
 .container{
 	display: flex;
 	flex-wrap: wrap;
 	width: 70%;
 	margin:auto;
 	justify-content: center;
-	padding-bottom: 2em;
+	padding-bottom: 1em;
+	max-width: 900px;
 }
 .less{
 	width: 13em;
@@ -111,6 +121,7 @@ header{
 	display: block;
 	color: black;
 	text-decoration: none;
+	cursor: pointer;
 }
 .less:hover{
 	opacity: 0.6;
@@ -168,7 +179,7 @@ header{
 }
 
 .sintaksis{
-	width: 50%;
+	width: 80%;
 	margin: auto;
 }
 .sintaksis li{
@@ -179,6 +190,11 @@ header{
 .sintaksis li:hover a{
 	color: #214683;
 }
+.sintaksis_qq{
+	font-size: 0.8em;
+	margin: 0em;
+	padding-top: 2em;
+}
 
 .zapros{
 	margin: auto;
@@ -186,6 +202,7 @@ header{
 	padding: 5px;
 }
 .vid_zap{
+	width: auto;
 	margin: 15px;
 	background-color: #F2F7FD;
 	padding: 8px;
@@ -193,6 +210,7 @@ header{
 	color: black;
 	border: 2px dashed #2B70CA;
 	font-family: Courier New;
+	float:right;
 }
 .vid_zap_short{
 	width: 5em;
@@ -360,68 +378,43 @@ p, table{
 }
 
 /* ========== Адаптив ========== */
-@media screen and (min-width:1241px) and (max-width:9999px) {
-	.content{
-		width: 80%;
-	}
-}
-@media screen and (min-width:1025px) and (max-width:1240px) {
-	.content{
-		width: 80%;
-	}
-	.sintaksis{
-		width: 60%;
-	}
-}
+
+
 @media screen and (min-width:886px) and (max-width:1024px) {
+	.container{
+		width:80%;
+	}
 	.content{
-		width: 80%;
+		width: 95%;
 	}
 	.sintaksis{
-		width: 70%;
+		width: 90%;
 	}
 	body{
 		font-size: 0.9em;
 	}
 }
 
-@media screen and (min-width:661px) and (max-width:885px) {
-	.content{
-		width: 80%;
-	}
-	.sintaksis{
-		width: 80%;
-	}
-	body{
-		font-size: 0.8em;
-	}
-}
-@media screen and (min-width:536px) and (max-width:660px) {
+@media screen and (min-width:721px) and (max-width:885px) {
 	.container{
-		width:100%;
+		width:80%;
 	}
 	.content{
-		width: 80%;
+		width: 90%;
 	}
 	.sintaksis{
 		width: 90%;
 	}
 	body{
-		font-size: 0.7em;
-	}
-	.hed{
-	margin-left: 5em;
+		font-size: 0.8em;
 	}
 }
-@media screen and (min-width:472px) and (max-width:535px) {
-	.lessContent{
-	width: 100%;
-	}
+@media screen and (min-width:564px) and (max-width:720px) {
 	.container{
-		width:100%;
+		width:75%;
 	}
 	.content{
-		width: 80%;
+		width: 90%;
 	}
 	.sintaksis{
 		width: 90%;
@@ -430,15 +423,16 @@ p, table{
 		font-size: 0.6em;
 	}
 	.hed{
-	margin-left: 4em;
+	margin-left: 3em;
 	}
 }
-@media screen and (min-width:400px) and (max-width:471px) {
+
+@media screen and (min-width:400px) and (max-width:563px) {
 	.container{
-		width:100%;
+		width:95%;
 	}
 	.content{
-		width: 80%;
+		width: 95%;
 	}
 	.sintaksis{
 		width: 100%;
@@ -447,7 +441,7 @@ p, table{
 		font-size: 0.6em;
 	}
 	.hed{
-	margin-left: 3em;
+	margin-left: 2em;
 	}
 }
 
