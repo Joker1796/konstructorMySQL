@@ -10,10 +10,10 @@
 		<script src="../jquery-3.2.1.min.js"></script>
 		<script src="../script_heder_footer.js"></script>
 		<script src="../script.js"></script>
-		
-		
+
+
 	</head>
-	
+
 <body>
 
 <!--================= ШАПКА ===================-->
@@ -21,7 +21,7 @@
 		<div class="hed inner_hed">
 		</div>
 	</header>
-	
+
 <!--================= КОНТЕНТ ===================-->
 <div id="zagolovok" class="hr_zagolovok">Урок 4. Свойства столбцов</div>
 
@@ -29,61 +29,133 @@
 		Короткая справка <a id="close" href="#">X</a>
 		<div id="podskazki_text"></div>
 	</div>
-	
-<div id="content" class="lessContent">
-	<div class="container">
-		
-		<div>
-			<h2>Заголовок</h2>
-			<p>Текст.</p>
-			<p></p>
-			<div class="vid_zap"></div>
-			<p> </p>
-			<h2></h2>
-			<p></p>
-			<h2></h2>
-		</div>
-			
-			<div class="less less1" id="less1_cmd_button"><p class="lessName">Свойство 1</p></div>
-			<div class="less less1" id="less1_myadmin_button"><p class="lessName">Свойство 2</p></div>
-			<div class="less less1" id="less1_php_button"><p class="lessName">Свойство 3</p></div>
-	</div>	
-</div>
-		<div class="disguise_block" id="less1_cmd" hidden="true">
-			<h2></h2>
-			<p></p>
-			<div class="vid_zap"></div>
-			<p><i></i></p>
+
+
+<div class="content margin_bot">
+
+	<h2>Изменить свойства одного или нескольких столбцов можно при помощи следующей конструкции:</h2>
+	<div class="vid_zap">
+	ALTER TABLE table_name CHANGE field_name_old field_name_new parametrs
+	</div>
 			<p>
-			<img src="../img/less1_img1.jpg">
+				<b>table_name</b>
+				- имя таблицы, в которой находится изменяемый столбец;
+			</p><p>
+				<b>field_name_old</b>
+				- имя столбца изменяемого столбца;
+			</p><p>
+				<b>field_name_new</b>
+				- новое имя изменяемого столбца (должно равняться field_name_old, если мы не хотим поменять
+				имя столбца);
+			</p><p>
+				<b>parametrs</b>
+				- новые параметры столбца.
+			</p>
+			<div class="next next2">
+				<button class="button"><a href="../spravka/f6_3.html">Подробнее о ALTER TABLE</a></button>
+			</div>
+
+</div>
+
+	<div class="container">
+
+			<div class="less less1" id="less1_cmd_button"><p class="lessName">Переименование таблицы</p></div>
+			<div class="less less1" id="less1_myadmin_button"><p class="lessName">Вставка столбцов</p></div>
+			<div class="less less1" id="less1_php_button"><p class="lessName">Удаление столбцов</p></div>
+	</div>
+		<div class="disguise_block" id="less1_cmd" hidden="true">
+			<h2>Изменение свойств таблицы производиться при помощи команды ALTER TABLE.</h2>
+					<h2>Синтаксис команды ALTER TABLE</h2>
+					<hr>
+		<div class="vid_zap">
+		ALTER [IGNORE] TABLE tbl_name alter_specification [, alter_specification ...]
 		</div>
+				<p>
+					Команда <b>ALTER TABLE</b> позволяет изменять внутреннюю структуру уже существующей таблицы.
+				</p>
+				<p>
+					<b>tbl_name</b>
+					- Задает имя таблицы, в которой будут производиться изменения.
+				</p>
+				<p>
+					<b>IGNORE</b>
+					- Если этот параметр не задан, то при обнаружении дублирующих значений в уникальных ключах
+					в новой таблице производиться отмена всех изменений. В противном случае при обнаружении
+					дублирующих значений в уникальных ключах первая запись с дублирующим ключем остается, а
+					остальные удаляются.
+				</p>
+				<p>
+					<b>alter_specification</b>
+					- Задает непосредственно само действие, которое должно быть произведено с таблицей.
+				</p>
+				<p>
+					<b>ALTER TABLE table_name_old RENAME table_name_new</b>
+				</p><p>
+					table_name_old - старое имя таблицы, которое нам нужно переименовать;<br>
+					table_name_new - новое имя таблицы.
+				</p><p>
+					Допустим, нам нужно переименовать таблицу search в search_en:
+				</p>
+		<div class="vid_zap">
+		<pre>
+		$sql="ALTER TABLE search RENAME search_en";
+		mysql_query($sql);
+		</pre>
+		</div>
+	</div>
 		<div class="disguise_block" id="less1_myadmin" hidden="true">
-			<h2></h2>
-			<p></p>
-			<img src="../img/less1_img4.jpg">
+			<h2>Изменение свойств таблицы : Вставка столбцов (ALTER TABLE ADD)</h2>
+			<p>
+				Вставку нового столбца можно осуществить при помощи следующей конструкции:
+			</p>
+	<div class="vid_zap">
+	ALTER TABLE table_name ADD field_name parametrs
+	</div>
+			<p>
+				<b>table_name</b>
+				- имя таблицы, в которой будет вставлен новый столбец;
+			</p><p>
+				<b>field_name</b>
+				- имя вставляемого столбца;
+			</p><p>
+				<b>parametrs</b>
+				- параметры, описывающие вставляемый столбец.
+			</p><p>
+				Обязательным параметром является указание типа данных. (Про возможные типы данных подробно
+				написано в Создание и удаление таблицы).
+			</p>
 		</div>
 		<div class="disguise_block" id="less1_php" hidden="true">
-			<h2></h2>
-			<p></p>
-			<h2></h2>
-			<p></p>
-			<img id="less1_code_php" src="../img/less1_img5.jpg">
-	
-		<div class="container">
-			<div class="generator">
-				<p>
-					$db_hostname <input maxlength="25" size="20" value="localhost" id="less1_hostname"> 
-					<a title="Сдесь вы можете ввести свой адрес хоста, если он отличается от localhost, по умолчанию." id="vopros_nametbl" class="vopros" href="#">?</a>
-				</p>
-				<button class="button" id="less1_button_phpcode"><a>Создать код PHP</a></button>
+			<h2>Изменение свойств таблицы : Удаление столбцов (ALTER TABLE DROP)</h2>
+			ALTER TABLE table_name DROP field_name
+					<p>
+						<b>table_name</b>
+						- имя таблицы, в которой будет удален столбец;
+					</p><p>
+						<b>field_name</b>
+						- имя удаляемого столбца.
+					</p>
+			<div class="vid_zap">
+			<pre>
+			$sql="ALTER TABLE search DROP id_num";
+			mysql_query($sql);
+			</pre>
 			</div>
-			<div class="generator vid_zap" id="less1_polezapros">Нажмите кнопку: "Создать код PHP"</div>
-		</div>
+					<p>
+						Если мы хотим удалить сразу несколько полей, то надо через запятую повторить DROP
+						field_name для каждого столбца:
+					</p>
+			<div class="vid_zap">
+			<pre>
+			$sql="ALTER TABLE search DROP id_1, DROP id_2, DROP id_3";
+			mysql_query($sql);
+			</pre>
+			</div>
 	</div>
 <!--================= ПОДВАЛ ===================-->
 	<footer id="footer">
 		<div class="foot">
-		</div>	
+		</div>
 	</footer>
 <div id="toTop"><img class="strelka" src="../up.png"></div >
 </body>

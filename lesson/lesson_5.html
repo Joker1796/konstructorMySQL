@@ -10,10 +10,10 @@
 		<script src="../jquery-3.2.1.min.js"></script>
 		<script src="../script_heder_footer.js"></script>
 		<script src="../script.js"></script>
-		
-		
+
+
 	</head>
-	
+
 <body>
 
 <!--================= ШАПКА ===================-->
@@ -21,7 +21,7 @@
 		<div class="hed inner_hed">
 		</div>
 	</header>
-	
+
 <!--================= КОНТЕНТ ===================-->
 <div id="zagolovok" class="hr_zagolovok">Урок 5. Вставка и удаление строк</div>
 
@@ -29,68 +29,164 @@
 		Короткая справка <a id="close" href="#">X</a>
 		<div id="podskazki_text"></div>
 	</div>
-	
+
 <div id="content" class="lessContent">
 	<div class="container">
-		
+
 		<div>
-			<h2>Точка с запятой</h2>
-			<p>Начнем с самого простого. Набирая команду, вы, наверное, заметили точку с запятой 
-			(;) в конце SHOW databases;? Этот символ используется в MySQL для завершения команд 
-			или отделения их друг от друга. Если забыть поставить этот символ, MySQL 
-			выдаст приглашение и будет ожидать от вас его ввода. Запрашиваемая точка с запятой 
-			стала частью синтаксиса, позволяющего вводить длинные команды, разбивая их на 
-			несколько строк. Она также позволяет вводить сразу несколько команд, после каждой 
-			из которых стоит точка с запятой. После нажатия клавиши Enterинтерпретатор получит 
-			все эти команды в едином пакете и выполнит их в порядке следования.</p>
-			<p></p>
-			<div class="vid_zap"></div>
-			<p> </p>
-			<h2></h2>
-			<p></p>
-			<h2></h2>
+			<h2>Общие положения работы команды INSERT:</h2>
+			<hr>
+		<p>
+			<b>tbl_name</b>
+			- Задает имя таблицы, в которую будет вставлена новая строка. На момент запуска команды INSERT
+			таблица с таким именем должна существовать в базе данных.
+		</p><p>
+			<b>LOW_PRIORITY</b>
+			- Если указан этот параметр, то вставка новой записи будет отложена до тех пор, пока другие
+			сценарии не закончат чтение из этой таблицы. Надо отметить, что если таблица часто используется,
+			то при указании этого параметра может пройти достаточно много времени, прежде чем данная команда
+			будет выполнена.
+		</p><p>
+			<b>DELAYED</b>
+			- Если указан этот параметр, то после выполнения команды <b>INSERT</b> сценарий сразу же получит ответ
+			от БД о успешной вставке новой записи, а запись будет вставлено только после завершения
+			использования данной таблицы другим сценарием. Это может быть удобно, если требуется высокая
+			скорость работы скрипта. Данный параметр работает только с таблицами типа ISAM и MyISAM.
+			Следуем отметить, что если таблица, в которую происходит вставка записи, в данный момент не
+			используется другими запросами, то команда INSERT DELAYED будет работать медленнее, нежели <b>INSER</b>.
+			Так что рекомендуется использовать параметр DELAYED только при большой нагрузке на таблицу.
+		</p><p>
+			<b>IGNORE</b>
+			- Если некоторые поля таблицы имеют ключи PRIMARY или UNIQUE, и производится вставка новой
+			строки, в которой эти поля имеют дублирующее значение, то действие команды аварийно завершается и
+			выдается ошибка №1062 ("Duplicate entry 'val' for key N"). Если в команде INSERT указано ключевое
+			 слово IGNORE, то вставка записей не прерывается, а строки с дублирующими значениями просто не
+			 вставляются.
+		</p><p>
+			Если MySQL был сконфигурирован с использованием опции DONT_USE_DEFAULT_FIELDS, то команда INSERT
+			будет генерировать ошибку, если явно не указать величины для всех столбцов, которые требуют
+			значений не-NULL.
+		</p><p>
+			Для того, чтобы узнать значение, присвоенное полю с ключом AUTO_INCREMENT, можно воспользоваться
+			функцией mysql_insert_id().
+		</p><p>
+			Для добавления новых записей в существующую таблицу при помощи команды <b>INSERT</b> существует три
+			основных синтаксиса:
+		</p><p>
+			<b>INSERT ... VALUES</b>
+			- В этом случае в команде четко указывается порядок следования устанавливаемых полей и их значений.
+		</p>
 		</div>
-			
-			<div class="less less1" id="less1_cmd_button"><p class="lessName">Работа с интерфейсом командной строки</p></div>
-			<div class="less less1" id="less1_myadmin_button"><p class="lessName">Работа с MySQL через phpMyAdmin</p></div>
-			<div class="less less1" id="less1_php_button"><p class="lessName">Работа с использованием PHP</p></div>
-	</div>	
+
+			<div class="less less1" id="less1_cmd_button"><p class="lessName">Вставка строк</p></div>
+			<div class="less less1" id="less1_php_button"><p class="lessName">Удаление строк</p></div>
+	</div>
 </div>
 		<div class="disguise_block" id="less1_cmd" hidden="true">
-			<h2></h2>
-			<p></p>
-			<div class="vid_zap"></div>
-			<p><i></i></p>
-			<p>
-			<img src="../img/less1_img1.jpg">
-		</div>
-		<div class="disguise_block" id="less1_myadmin" hidden="true">
-			<h2></h2>
-			<p></p>
-			<img src="../img/less1_img4.jpg">
+			<p><b>Следующая команда вставит в таблицу users новую запись, присвоив полям name, age, country, city
+				значения Evgen, 26, Russia, Ryazan соответственно:</b></p>
+	<div class="vid_zap">
+	<pre>
+	INSERT INTO
+	    `users` (`name`, `age`, `country`, `city`)
+	VALUES
+	    ('Evgen', 26, 'Russia', 'Ryazan')
+	</pre>
+	</div>
+	<div class="next">
+		<button class="button"><a href="../spravka/f7.html">Подробнее о INSERT INTO</a></button>
+	</div>
 		</div>
 		<div class="disguise_block" id="less1_php" hidden="true">
-			<h2></h2>
-			<p></p>
-			<h2></h2>
-			<p></p>
-			<img id="less1_code_php" src="../img/less1_img5.jpg">
-	
-		<div class="container">
-			<div class="generator">
-				<p>
-					$db_hostname <input maxlength="25" size="20" value="localhost" id="less1_hostname"> 
-					<a title="Сдесь вы можете ввести свой адрес хоста, если он отличается от localhost, по умолчанию." id="vopros_nametbl" class="vopros" href="#">?</a>
-				</p>
-				<button class="button" id="less1_button_phpcode"><a>Создать код PHP</a></button>
-			</div>
-			<div class="generator vid_zap" id="less1_polezapros">Нажмите кнопку: "Создать код PHP"</div>
+			<h2>Синтаксис оператора DELETE FROM</h2>
+			<hr>
+<div class="vid_zap">
+<pre>
+DELETE [LOW_PRIORITY | QUICK] FROM table_name
+    [WHERE where_definition]
+    [ORDER BY ...]
+    [LIMIT rows]
+</pre>
+</div>
+или
+<div class="vid_zap">
+<pre>
+DELETE [LOW_PRIORITY | QUICK] table_name[.*] [,table_name[.*] ...]
+    FROM table-references
+    [WHERE where_definition]
+</pre>
+</div>
+или
+<div class="vid_zap">
+<pre>
+DELETE [LOW_PRIORITY | QUICK]
+    FROM table_name[.*], [table_name[.*] ...]
+    USING table-references
+    [WHERE where_definition]
+</pre>
+</div>
+		<p>
+			Команда <b>DELETE</b> удаляет из таблицы table_name все записи, удовлетворяющие условию where_definition. <br>
+			Если условие WHERE where_definition не задано, то из таблицы table_name удаляются все записи.
+		</p><p>
+			Команда <b>DELETE</b> возвращает количество удаленных записей.
+		</p><p>
+			Следует учитывать, что если в команде <b>DELETE</b> не задано условие WHERE where_definition,
+			то команда возвратит 0, хотя записи были удалены.
+		</p><p>
+			Если все же необходимо удалить все записи и узнать их количество, то в условии where_definition
+			нужно задать заведомо истинное значение:
+		</p>
+<div class="vid_zap">
+<pre>
+DELETE FROM
+    `users`
+WHERE
+    1=1
+</pre>
+</div>
+		<p>
+			Но в этом случае выполнение команды происходит значительно медленнее.
+		</p><p>
+			<b>LOW_PRIORITY</b>
+			- Если указано это ключевое слово, то удаление записей из таблицы table_name не будет
+			произведено до тех пор, пока другие процессы не закончат чтение их этой таблицы.
+		</p><p>
+			<b>QUICK</b>
+			- Если указано это ключевое слово, то при удалении записей обработчик таблицы не будет
+			объединять индексы, что может ускорить операцию удаления.
+		</p><p>
+			<b>table_name</b>
+			- Имя таблицы в базе данных, из которой будет происходить удаление строк.
+		</p><p>
+			<b>LIMIT</b>
+			- Задает максимальное количество строк, которые могут быть удалены за текущий запрос.
+		</p><p>
+			Следующий запрос удалит из таблицы users только 5 строк:
+		</p>
+<div class="vid_zap">
+<pre>
+DELETE FROM
+    `users`
+LIMIT
+    5
+</pre>
+</div>
+		<p>
+			<b>ORDER BY</b>
+			- Задает имя поля, или имена полей через запятую, по которым происходит сортировка удаляемых записей.
+		</p><p>
+			Эта возможность актуальна при необходимости удалить только определенное кол-во записей,
+			отсортированных по какому-либо свойству.
+		</p>
+		<div class="next">
+			<button class="button"><a href="../spravka/f8.html">Подробнее о DELETE FROM</a></button>
 		</div>
 	</div>
 <!--================= ПОДВАЛ ===================-->
 	<footer id="footer">
 		<div class="foot">
-		</div>	
+		</div>
 	</footer>
 <div id="toTop"><img class="strelka" src="../up.png"></div >
 </body>

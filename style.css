@@ -61,7 +61,7 @@ header{
 	padding: 1em;
 	font-size: 1.5em;
 	text-decoration: none;
-	
+
 }
 .men:hover a{
 	color: #265CA6;
@@ -177,6 +177,9 @@ header{
 	width: 70%;
 	padding-bottom: 6em;
 }
+.margin_bot{
+	padding-bottom: 0.1em;
+}
 
 .sintaksis{
 	width: 80%;
@@ -210,7 +213,7 @@ header{
 	color: black;
 	border: 2px dashed #2B70CA;
 	font-family: Courier New;
-	float:right;
+
 }
 .vid_zap_short{
 	width: 5em;
@@ -231,8 +234,8 @@ header{
 	width: 75px;
 	float: right;
 	position: fixed; /* Фиксированное положение */
-    right: 10px; 
-    top: 75%; 
+    right: 10px;
+    top: 75%;
     padding: 10px;
 }
 #toTop {
@@ -252,7 +255,7 @@ header{
 }
 
 a{
-	text-decoration: none; 
+	text-decoration: none;
 	color: #2B70CA;
 	font-family: "Franklin Gothic Medium";
 }
@@ -276,7 +279,7 @@ p, table{
 	width: 350px;
 	position: fixed;
 	right: 10px;
-	top: 24%; 
+	top: 24%;
     padding: 5px;
 	background-color: #2B70CA;
 	color: white;
@@ -285,7 +288,7 @@ p, table{
 	width: 200px;
 	position: fixed;
 	right: -1000px;
-	top: 30%; 
+	top: 30%;
     padding: 5px;
 	background-color: #2B70CA;
 	color: white;
@@ -357,6 +360,9 @@ p, table{
 	margin: auto;
 	text-align: center;
 	margin-bottom: 2em;
+}
+.next2{
+	margin-bottom: 0.2em;
 }
 .button{
 	width: 14em;
@@ -447,9 +453,9 @@ p, table{
 
 /* ========== Шрифт для шапки ========== */
 @font-face {
-font-family: "Impact"; 
-// адрес шрифта и тип 
-src: url("../fonts/ofont.ru_Impact.ttf") format("truetype"); 
-font-style: normal; 
-font-weight: normal; 
-} 
+font-family: "Impact";
+// адрес шрифта и тип
+src: url("../fonts/ofont.ru_Impact.ttf") format("truetype");
+font-style: normal;
+font-weight: normal;
+}
